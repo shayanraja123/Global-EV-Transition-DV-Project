@@ -1,0 +1,13 @@
+#container {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#polar-chart-svg {
+    width: 1400px;
+    height: 1000px;
+}
