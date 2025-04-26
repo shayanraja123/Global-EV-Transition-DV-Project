@@ -1,4 +1,4 @@
-﻿Geo Zone,year,Scenario Type,Collected Method,Slow (Units),Fast (Units),Slow & Fast (Units),,,,,
+﻿geo_zone,year,scenario_type,Collected Method,Slow (Units),Fast (Units),slow_fast_units,,,,,
 EU-28+NO+IS+CH,2010,REAL,Reported," 3,200 ", -   ," 3,200 ",,,,,
 EU-28+NO+IS+CH,2011,REAL,Reported," 6,129 ", 31 ," 6,160 ",,,,,
 EU-28+NO+IS+CH,2012,REAL,Reported," 17,134 ", 350 ," 17,484 ",,,,,
