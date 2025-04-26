@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lithium & Cobalt Production</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #f9fafb, #ffffff);
+      color: #111;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    #chart {
+      width: 100%;
+      max-width: 1000px;
+      height: 600px;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      padding: 1rem;
+    }
+
+    .legend-note {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .legend-note span {
+      margin: 0 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lithium & Cobalt Production</h1>
+  <p class="subtitle">Global total production from 2010 to 2023 (in kilotonnes)</p>
+
+  <div id="chart"></div>
+
+  <p class="legend-note">
+    <span style="color:#F4A300;">&#9632; Lithium</span>
+    <span style="color:#F47B4A;">&#9632; Cobalt</span>
+  </p>
+
+  <script src="script.js"></script>
+</body>
+</html>
