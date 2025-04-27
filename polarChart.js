@@ -8,7 +8,7 @@ let aps_data = null
 // https://d3-graph-gallery.com/graph/circular_barplot_double.html
 
 function drawPolarChart() {
-    const margin = {top: 100, right: 20, bottom: 20, left: 20},
+    const margin = {top: 100, right: 20, bottom: 20, left: 10},
         width = 900 - margin.left - margin.right,
         height = 900 - margin.top - margin.bottom,
         innerRadius = 150,
@@ -20,6 +20,8 @@ function drawPolarChart() {
         .append("g")
             .attr("transform", `translate(${width/2+margin.left}, ${height/2+margin.top})`)
 
+    const legendData = ['Actual', 'IEA-NZE', 'IEA-SPS', 'IEA-APS']
+
     const x = d3.scaleBand()
         .domain([...new Set(world_data.map(d => d.year))])
         .range([0, 2 * Math.PI])
@@ -29,7 +31,7 @@ function drawPolarChart() {
         .range([innerRadius, outerRadius])
 
     const z = d3.scaleOrdinal()
-        .domain(['Actual', 'IEA-NZE', 'IEA-SPS', 'IEA-APS'])
+        .domain(legendData)
         .range(['#999999', '#76b7b2', '#f28e2b', '#59a14f'])
     
     svg.append('g')
@@ -78,7 +80,7 @@ function drawPolarChart() {
                 .attr('opacity', 0.15)
                 .attr('r', d => y(d))
                 g.append('text')
-                    .attr('x', 0)
+                    .attr('x', -5)
                     .attr('y', d => -y(d))
                     .attr('dy', '0.35em')
                     .attr('opacity', 0.5)
@@ -124,6 +126,29 @@ function drawPolarChart() {
                     .padAngle(0.01)
                     .padRadius(innerRadius))
         )
+    
+    const legend = svg.append('g')
+        .selectAll('g')
+        .data(legendData, d => d)
+        .join(
+            enter => {
+                const g = enter.append('g')
+                g.attr('transform', (d,i) => `translate(-40, ${i * 30 - 50})`)
+                g.append('rect')
+                    .attr('width', 18)
+                    .attr('height',18)
+                    .attr('fill', d => z(d))
+                g.append('text')
+                    .attr('x', 24)
+                    .attr('y', 9)
+                    .attr('dy', '0.35em')
+                    .style('font-weight', 600)
+                    .text(d => d)
+                return g
+            }
+        )
+    
+    
 
 }
 document.addEventListener('DOMContentLoaded', function () {
