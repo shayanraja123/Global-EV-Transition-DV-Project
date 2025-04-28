@@ -5,7 +5,7 @@ const projection = d3.geoNaturalEarth1().scale(160).translate([width / 2, height
 const path = d3.geoPath().projection(projection);
 const tooltip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
 
-// Color scale thresholds
+
 const colorScale = d3.scaleThreshold()
   .domain([0, 100000, 200000, 500000, 1000000, 2000000, 5000000])
   .range(["#f7f7f7", "#fee8c8", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f", "#990000"]);
@@ -15,7 +15,7 @@ let currentYear = "2023";
 let isPlaying = false;
 let timer;
 
-// Fix mismatches between dataset and GeoJSON
+
 const countryNameMap = {
   "United States": "United States of America",
   "Russia": "Russian Federation",
@@ -53,7 +53,7 @@ Promise.all([
   d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
   d3.csv("electric-car-sales.csv")
 ]).then(([world, data]) => {
-  // Reformat and normalize country names
+ 
   data.forEach(d => {
     const originalName = d.Entity;
     const name = countryNameMap[originalName] ?? originalName;
@@ -139,13 +139,13 @@ Promise.all([
       });
   }
 
-  // Slider logic
+  
   d3.select("#year-slider").on("input", function () {
     stopAutoplay();
     updateMap(this.value);
   });
 
-  // Play button
+
   const playBtn = document.getElementById("play-button");
 
   playBtn.addEventListener("click", () => {
