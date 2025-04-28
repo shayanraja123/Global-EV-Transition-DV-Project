@@ -14,7 +14,7 @@ function drawPolarChart() {
         innerRadius = 100,
         outerRadius = Math.min(width, height) / 2
 
-    const svg = d3.select('#main-vis')
+    const svg = d3.select('svg')
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
@@ -166,7 +166,7 @@ function drawPolarChart() {
 
 export function createPolarChart() {
 
-    d3.csv('dan-data/charging_ports_database.csv').then(function(data) {
+    d3.csv('data/charging_ports_database.csv').then(function(data) {
         console.log('loaded data')
 
         // world_data = data.filter(obj => obj.geo_zone === 'World')

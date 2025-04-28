@@ -1,4 +1,7 @@
-import {createPolarChart} from "./polarChart.js"
+import {createPolarChart} from "./js/polarChart.js"
+import { createStepSankey } from "./js/stepSankey_vis6.js";
+
+
 const steps = d3.selectAll(".step");
 const vis = d3.select("#main-vis");
 
@@ -94,6 +97,9 @@ function updateVisualization(step) {
         .duration(800)
         .attr("y", 200)
         .attr("font-size", "24px");
+    }
+    else if (step === 7) {
+      createStepSankey()
     }
     vis.classed("visible", true);
   }, 100);
