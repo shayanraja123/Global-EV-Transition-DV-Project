@@ -8,13 +8,13 @@ let aps_data = null
 // https://d3-graph-gallery.com/graph/circular_barplot_double.html
 
 function drawPolarChart() {
-    const margin = {top: 100, right: 20, bottom: 20, left: 10},
-        width = 900 - margin.left - margin.right,
-        height = 900 - margin.top - margin.bottom,
-        innerRadius = 150,
+    const margin = {top: 100, right: 20, bottom: 20, left: 20},
+        width = 700 - margin.left - margin.right,
+        height = 700 - margin.top - margin.bottom,
+        innerRadius = 100,
         outerRadius = Math.min(width, height) / 2
 
-    const svg = d3.select('#polar-chart-svg')
+    const svg = d3.select('#main-vis')
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
@@ -80,7 +80,7 @@ function drawPolarChart() {
                 .attr('opacity', 0.15)
                 .attr('r', d => y(d))
                 g.append('text')
-                    .attr('x', -5)
+                    .attr('x', 0)
                     .attr('y', d => -y(d))
                     .attr('dy', '0.35em')
                     .attr('opacity', 0.5)
@@ -147,11 +147,24 @@ function drawPolarChart() {
                 return g
             }
         )
-    
+
+    const title = svg.append('g')
+        .selectAll('text')
+        .data(['Projected Growth of Charging Ports (Slow and Fast Units)'])
+        .join(
+            enter => enter.append('text')
+                .attr('x', -340)
+                .attr('y', -350)
+                .attr('dy', '0.35em')
+                .style('font-weight', 700)
+                .style('font-size', '24px')
+                .text(d => d)
+        )
     
 
 }
-document.addEventListener('DOMContentLoaded', function () {
+
+export function createPolarChart() {
 
     d3.csv('dan-data/charging_ports_database.csv').then(function(data) {
         console.log('loaded data')
@@ -182,5 +195,5 @@ document.addEventListener('DOMContentLoaded', function () {
         drawPolarChart()
     })
 
-    
-})
+        
+}

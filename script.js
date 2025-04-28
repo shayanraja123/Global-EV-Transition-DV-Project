@@ -1,3 +1,4 @@
+import {createPolarChart} from "./polarChart.js"
 const steps = d3.selectAll(".step");
 const vis = d3.select("#main-vis");
 
@@ -74,6 +75,21 @@ function updateVisualization(step) {
         .attr("font-size", "0px")
         .attr("fill", "#673AB7")
         .text("Top EV-Adopting Countries")
+        .transition()
+        .duration(800)
+        .attr("y", 200)
+        .attr("font-size", "24px");
+    }
+    else if (step === 5) {
+      createPolarChart()
+    }
+    else if (step === 6) {
+      vis.append("text")
+        .attr("x", 100)
+        .attr("y", 400)
+        .attr("font-size", "0px")
+        .attr("fill", "#673AB7")
+        .text("More top stuff")
         .transition()
         .duration(800)
         .attr("y", 200)

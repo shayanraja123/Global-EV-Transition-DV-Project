@@ -1,40 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Global EV-olution</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div id="progress-bar"></div>
-  <div id="scrolly-container">
-    <div id="text-panel">
-      <section class="step" data-step="1">
-        <h2 class="page-header">Why the World Is Shifting to Electric Vehicles</h2>
-        <p class="chart-caption">Transportation-related CO₂ emissions have surged globally over the past decades.</p>
-        <div class="next-arrow">↓</div>
-      </section>
-      <section class="step" data-step="2">
-        <h2 class="page-header">Battery Costs Are Falling Fast</h2>
-        <p class="chart-caption">Battery costs have plummeted, making EVs increasingly affordable.</p>
-        <div class="next-arrow">↓</div>
-      </section>
-      <section class="step" data-step="3">
-        <h2 class="page-header">EV Sales Are Soaring</h2>
-        <p class="chart-caption">EV sales are rising sharply as gasoline vehicle sales plateau.</p>
-        <div class="next-arrow">↓</div>
-      </section>
-      <section class="step" data-step="4">
-        <h2 class="page-header">Top EV-Adopting Nations</h2>
-        <p class="chart-caption">Leading nations in EV adoption, from Norway to China.</p>
-      </section>
-    </div>
-    <div id="vis-panel">
-      <svg id="main-vis" width="600" height="400"></svg>
-    </div>
-  </div>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="script.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>The Global EV-olution</title>
+		<link rel="stylesheet" href="style.css" />
+		
+		
+	</head>
+	<body>
+		<div id="progress-bar"></div>
+		<div id="scrolly-container">
+			<div id="text-panel">
+				<section class="step" data-step="1">
+					<h2 class="page-header">
+						Why the World Is Shifting to Electric Vehicles
+					</h2>
+					<p class="chart-caption">
+						Transportation-related CO₂ emissions have surged globally over the
+						past decades.
+					</p>
+					<div class="next-arrow">↓</div>
+				</section>
+				<section class="step" data-step="2">
+					<h2 class="page-header">Battery Costs Are Falling Fast</h2>
+					<p class="chart-caption">
+						Battery costs have plummeted, making EVs increasingly affordable.
+					</p>
+					<div class="next-arrow">↓</div>
+				</section>
+				<section class="step" data-step="3">
+					<h2 class="page-header">EV Sales Are Soaring</h2>
+					<p class="chart-caption">
+						EV sales are rising sharply as gasoline vehicle sales plateau.
+					</p>
+					<div class="next-arrow">↓</div>
+				</section>
+				<section class="step" data-step="4">
+					<h2 class="page-header">Top EV-Adopting Nations</h2>
+					<p class="chart-caption">
+						Leading nations in EV adoption, from Norway to China.
+					</p>
+                    <div class="next-arrow">↓</div>
+				</section>
+                <section class="step" data-step="5">
+					<h2 class="page-header">Charging Ports Expected to Rise</h2>
+					<p class="chart-caption">
+						Some sample text about charging ports
+					</p>
+                    <div class="next-arrow">↓</div>
+				</section>
+                <section class="step" data-step="6">
+					<h2 class="page-header">Another random graph</h2>
+					<p class="chart-caption">
+						Just to show that the graph disappears
+					</p>
+                    <div class="next-arrow">↓</div>
+				</section>
+			</div>
+			<div id="vis-panel">
+				<svg id="main-vis" width="800" height="800"></svg>
+			</div>
+		</div>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+		<script type="module" src="script.js"></script>
+        <script type="module" src="polarChart.js"></script>
+	</body>
 </html>
