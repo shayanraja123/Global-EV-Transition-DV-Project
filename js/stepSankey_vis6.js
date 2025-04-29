@@ -213,6 +213,19 @@ function drawSankeyEVPolicies() {
 				.attr('stroke-width', d => d.width),
 			exit => exit.remove()
 		)
+
+	svg.append('g')
+		.selectAll('.title')
+		.data(['Flow of Significant EV Policies Over Time'])
+		.join(
+			enter => enter.append('text')
+				.attr('class', 'title')
+				.attr('x', 310)
+				.attr('y', -125)
+				.attr('font-size', '24px')
+				.style('font-weight', 700)
+				.text(d => d)
+		)
 	
 }
 
