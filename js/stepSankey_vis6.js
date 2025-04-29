@@ -2,9 +2,9 @@ let dataset = null
 
 function drawSankeyEVPolicies() {
 	console.log('drawSankey Policies')
-	const margin = {top: 100, bottom: 20, left: 95, right: 20}
-    const width = 1600 - margin.left - margin.right
-    const height = 1000 - margin.top - margin.bottom
+	const margin = {top: 200, bottom: 20, left: 200, right: 10}
+    const width = 1400 - margin.left - margin.right
+    const height = 700 - margin.top - margin.bottom
 
     const svg = d3.select('svg')
         .attr('width', width + margin.left + margin.right)
@@ -110,8 +110,8 @@ function drawSankeyEVPolicies() {
 	const sankey = d3.sankey()
 		.nodeId(d => d.name)
 		.nodeAlign(d3.sankeyJustify)
-		.nodeWidth(20)
-		.nodePadding(20)
+		.nodeWidth(15)
+		.nodePadding(10)
 		.size([width, height])
 
 	const {nodes, links} = sankey({
@@ -139,7 +139,7 @@ function drawSankeyEVPolicies() {
 					.attr("width", d => d.x1 - d.x0)
 					.attr("fill", d => color(d.category))
 				g.append('text')
-					.attr('x', d => d.name.includes('Phase') || d.name.includes('2024') ? d.x1 + 55 : d.x0 - 6)
+					.attr('x', d => d.name.includes('Phase') || d.name.includes('2024') ? d.x1 + 52 : d.x0 - 6)
 					.attr('y', d => (d.y1 + d.y0)/2)
 					.attr('dy', '0.35em')
 					.attr('text-anchor', 'end')
@@ -158,7 +158,7 @@ function drawSankeyEVPolicies() {
 					})
 				g.append('text')
 					.attr('x', d => d.x0-20)
-					.attr('y', -20)//d.name.includes('Phase') && d.name.includes('middlelate') ? (d.y1 + d.y0)/2 + 60 : (d.y1 + d.y0)/2 + 500)
+					.attr('y', -50)//d.name.includes('Phase') && d.name.includes('middlelate') ? (d.y1 + d.y0)/2 + 60 : (d.y1 + d.y0)/2 + 500)
 					.attr('dy', '0.35em')
 					.attr('text-anchor', 'end')
 					.attr('font-size', '20px')
