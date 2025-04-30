@@ -18,7 +18,7 @@ const observer = new IntersectionObserver(entries => {
       updateVisualization(step);
     }
   });
-}, { threshold: 0.5 });
+}, { threshold: 0.59 });
 
 steps.each(function() {
   observer.observe(this);
@@ -37,9 +37,6 @@ function updateVisualization(step) {
 
   if (step === 7) {
     container.classed("background-mode", true)
-    vis
-      .attr('width', 1000)
-      .attr('height', 800)
 
   } else {
     container.classed("background-mode", false)
@@ -48,6 +45,9 @@ function updateVisualization(step) {
       .attr('height', 800)
   }
 
+  setTimeout(() => {
+
+  
   if (step === 1) {
     vis.append("circle")
       .attr("cx", 300)
@@ -132,5 +132,6 @@ function updateVisualization(step) {
       .attr("y", d => 400 - d)
       .attr("height", d => d);
   }
+  }, 100)
     // vis.classed("visible", true);
 }
