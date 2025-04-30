@@ -1,6 +1,7 @@
 import {createPolarChart} from "./js/polarChart.js"
 import { createStepSankey } from "./js/stepSankey_vis6.js";
 
+let currentStep = null
 
 const steps = d3.selectAll(".step");
 const vis = d3.select("#main-vis")
@@ -15,6 +16,7 @@ const observer = new IntersectionObserver(entries => {
       d3.select(entry.target).classed("active", true);
 
       const step = +entry.target.dataset.step;
+      console.log(step)
       updateVisualization(step);
     }
   });
@@ -32,6 +34,8 @@ window.addEventListener('scroll', () => {
 });
 
 function updateVisualization(step) {
+  if (step === currentStep) return;
+  currentStep = step;
   vis.selectAll("*").remove();
   // vis.classed("visible", false);
 
@@ -43,10 +47,8 @@ function updateVisualization(step) {
     vis
       .attr('width', 1000)
       .attr('height', 800)
+    console.log('hi')
   }
-
-  setTimeout(() => {
-
   
   if (step === 1) {
     vis.append("circle")
@@ -118,6 +120,7 @@ function updateVisualization(step) {
     createStepSankey()
   }
   else if (step === 8) {
+    console.log('again')
     vis.selectAll("rect")
       .data([100, 200, 300])
       .enter()
@@ -132,6 +135,5 @@ function updateVisualization(step) {
       .attr("y", d => 400 - d)
       .attr("height", d => d);
   }
-  }, 100)
     // vis.classed("visible", true);
 }
