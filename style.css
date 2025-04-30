@@ -99,7 +99,7 @@ body {
 }
 
 #scrolly-container.background-mode #main-vis {
-  background: white;
+  background: rgb(243, 243, 243);
   width: 100%;
   height: 100%;
 }

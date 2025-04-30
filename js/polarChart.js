@@ -15,8 +15,8 @@ function drawPolarChart() {
         outerRadius = Math.min(width, height) / 2
 
     const svg = d3.select('svg')
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
+        // .attr("width", width + margin.left + margin.right)
+        // .attr("height", height + margin.top + margin.bottom)
         .append("g")
             .attr("transform", `translate(${width/2+margin.left}, ${height/2+margin.top})`)
 
