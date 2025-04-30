@@ -53,6 +53,7 @@ function updateVisualization(step) {
     vis
       .attr('width', 1000)
       .attr('height', 800)
+      .attr('viewbox', [0, 0, 1000, 800])
     console.log('hi')
   }
   
