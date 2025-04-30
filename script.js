@@ -1,8 +1,9 @@
 import {createPolarChart} from "./js/polarChart.js"
 import { createStepSankey } from "./js/stepSankey_vis6.js";
-
+import { create_choropleth_vis1} from "./js/choropleth_vis1.js";
+import { create_funnelchart } from "./js/funnelchart_vis11.js";
 let currentStep = null
-
+var playdiv=document.getElementById("playdiv");
 const steps = d3.selectAll(".step");
 const vis = d3.select("#main-vis")
   .attr('width', 1000)
@@ -51,14 +52,8 @@ function updateVisualization(step) {
   }
   
   if (step === 1) {
-    vis.append("circle")
-      .attr("cx", 300)
-      .attr("cy", 200)
-      .attr("r", 0)
-      .attr("fill", "#4CAF50")
-      .transition()
-      .duration(800)
-      .attr("r", 50);
+    create_choropleth_vis1();
+      playdiv.style.visibility='visible'
   }
   else if (step === 2) {
     vis.append("line")
@@ -72,6 +67,7 @@ function updateVisualization(step) {
       .duration(800)
       .attr("x2", 500)
       .attr("y2", 50);
+      playdiv.style.visibility='hidden'
   }
   else if (step === 3) {
     vis.selectAll("rect")
@@ -87,6 +83,7 @@ function updateVisualization(step) {
       .duration(800)
       .attr("y", d => 400 - d)
       .attr("height", d => d);
+      playdiv.style.visibility='hidden'
   }
   else if (step === 4) {
     vis.append("text")
@@ -99,9 +96,11 @@ function updateVisualization(step) {
       .duration(800)
       .attr("y", 200)
       .attr("font-size", "24px");
+      playdiv.style.visibility='hidden'
   }
   else if (step === 5) {
     createPolarChart()
+    playdiv.style.visibility='hidden'
     
   }
   else if (step === 6) {
@@ -115,9 +114,11 @@ function updateVisualization(step) {
       .duration(800)
       .attr("y", 200)
       .attr("font-size", "24px");
+      playdiv.style.visibility='hidden'
   }
   else if (step === 7) {
     createStepSankey()
+    playdiv.style.visibility='hidden'
   }
   else if (step === 8) {
     console.log('again')
@@ -134,6 +135,59 @@ function updateVisualization(step) {
       .duration(800)
       .attr("y", d => 400 - d)
       .attr("height", d => d);
+      playdiv.style.visibility='hidden'
+  }
+  else if (step === 9) {
+    vis.selectAll("rect")
+      .data([100, 200, 300])
+      .enter()
+      .append("rect")
+      .attr("x", (d, i) => 100 + i * 120)
+      .attr("y", 400)
+      .attr("width", 80)
+      .attr("height", 0)
+      .attr("fill", "#FF9800")
+      .transition()
+      .duration(800)
+      .attr("y", d => 400 - d)
+      .attr("height", d => d);
+      playdiv.style.visibility='hidden'
+  }
+  else if (step === 10) {
+    vis.selectAll("rect")
+      .data([100, 200, 300])
+      .enter()
+      .append("rect")
+      .attr("x", (d, i) => 100 + i * 120)
+      .attr("y", 400)
+      .attr("width", 80)
+      .attr("height", 0)
+      .attr("fill", "#FF9800")
+      .transition()
+      .duration(800)
+      .attr("y", d => 400 - d)
+      .attr("height", d => d);
+      playdiv.style.visibility='hidden'
+  }
+  else if (step === 11) {
+   create_funnelchart();
+      playdiv.style.visibility='hidden'
+  }
+  else if (step === 12) {
+    vis.selectAll("rect")
+      .data([100, 200, 300])
+      .enter()
+      .append("rect")
+      .attr("x", (d, i) => 100 + i * 120)
+      .attr("y", 400)
+      .attr("width", 80)
+      .attr("height", 0)
+      .attr("fill", "#FF9800")
+      .transition()
+      .duration(800)
+      .attr("y", d => 400 - d)
+      .attr("height", d => d);
+      playdiv.style.visibility='hidden'
   }
     // vis.classed("visible", true);
 }
