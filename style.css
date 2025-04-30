@@ -26,9 +26,10 @@ body {
 }
 
 #main-vis {
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 90%;
 }
+
 
 .step {
   margin-bottom: 80vh;
@@ -114,3 +115,55 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
 }
+
+
+
+/* ----- Visualization 2 (Battery Cost Decline Road Plot) Specific Styles ----- */
+
+.header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.main-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  color: #111;
+}
+
+.sub-title {
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 4px;
+  color: #555;
+}
+
+#chart {
+  display: flex;
+  justify-content: center;
+}
+
+.car-icon {
+  width: 24px;
+  height: auto;
+}
+
+.grid-lines line {
+  stroke: #ccc;               
+  stroke-width: 2;
+  stroke-dasharray: 4 3;
+}
+
+/* #playdiv {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none; /* hidden by default */
+  background: rgba(255,255,255,0.9);
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 10;
+} */

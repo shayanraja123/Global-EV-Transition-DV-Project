@@ -2,6 +2,11 @@ import {createPolarChart} from "./js/polarChart.js"
 import { createStepSankey } from "./js/stepSankey_vis6.js";
 import { create_choropleth_vis1} from "./js/choropleth_vis1.js";
 import { create_funnelchart } from "./js/funnelchart_vis11.js";
+import { createBatteryCostVis } from "./js/batteryCost_vis2.js";
+
+///////////////////////////////////////////////////////////////////
+
+
 let currentStep = null
 var playdiv=document.getElementById("playdiv");
 const steps = d3.selectAll(".step");
@@ -53,21 +58,10 @@ function updateVisualization(step) {
   
   if (step === 1) {
     create_choropleth_vis1();
-      playdiv.style.visibility='visible'
+      playdiv.style.display = 'block';
   }
   else if (step === 2) {
-    vis.append("line")
-      .attr("x1", 100)
-      .attr("y1", 350)
-      .attr("x2", 100)
-      .attr("y2", 350)
-      .attr("stroke", "#2196F3")
-      .attr("stroke-width", 5)
-      .transition()
-      .duration(800)
-      .attr("x2", 500)
-      .attr("y2", 50);
-      playdiv.style.visibility='hidden'
+    createBatteryCostVis();
   }
   else if (step === 3) {
     vis.selectAll("rect")
@@ -83,7 +77,7 @@ function updateVisualization(step) {
       .duration(800)
       .attr("y", d => 400 - d)
       .attr("height", d => d);
-      playdiv.style.visibility='hidden'
+      playdiv.style.display = 'none';
   }
   else if (step === 4) {
     vis.append("text")
@@ -96,11 +90,11 @@ function updateVisualization(step) {
       .duration(800)
       .attr("y", 200)
       .attr("font-size", "24px");
-      playdiv.style.visibility='hidden'
+      playdiv.style.display = 'none';
   }
   else if (step === 5) {
     createPolarChart()
-    playdiv.style.visibility='hidden'
+    playdiv.style.display = 'none';
     
   }
   else if (step === 6) {
@@ -114,11 +108,11 @@ function updateVisualization(step) {
       .duration(800)
       .attr("y", 200)
       .attr("font-size", "24px");
-      playdiv.style.visibility='hidden'
+      playdiv.style.display = 'none';
   }
   else if (step === 7) {
     createStepSankey()
-    playdiv.style.visibility='hidden'
+    playdiv.style.display = 'none';
   }
   else if (step === 8) {
     console.log('again')
@@ -135,7 +129,7 @@ function updateVisualization(step) {
       .duration(800)
       .attr("y", d => 400 - d)
       .attr("height", d => d);
-      playdiv.style.visibility='hidden'
+      playdiv.style.display = 'none';
   }
   else if (step === 9) {
     vis.selectAll("rect")
@@ -151,7 +145,7 @@ function updateVisualization(step) {
       .duration(800)
       .attr("y", d => 400 - d)
       .attr("height", d => d);
-      playdiv.style.visibility='hidden'
+      playdiv.style.display = 'none';
   }
   else if (step === 10) {
     vis.selectAll("rect")
@@ -167,11 +161,11 @@ function updateVisualization(step) {
       .duration(800)
       .attr("y", d => 400 - d)
       .attr("height", d => d);
-      playdiv.style.visibility='hidden'
+      playdiv.style.display = 'none';
   }
   else if (step === 11) {
    create_funnelchart();
-      playdiv.style.visibility='hidden'
+      playdiv.style.display = 'none';
   }
   else if (step === 12) {
     vis.selectAll("rect")
@@ -187,7 +181,7 @@ function updateVisualization(step) {
       .duration(800)
       .attr("y", d => 400 - d)
       .attr("height", d => d);
-      playdiv.style.visibility='hidden'
+      playdiv.style.display = 'none';
   }
     // vis.classed("visible", true);
 }
