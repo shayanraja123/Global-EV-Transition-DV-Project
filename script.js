@@ -62,6 +62,7 @@ function updateVisualization(step) {
   }
   else if (step === 2) {
     createBatteryCostVis();
+    playdiv.style.display = 'none';
   }
   else if (step === 3) {
     vis.selectAll("rect")
