@@ -2,9 +2,9 @@ let dataset = null
 
 function drawSankeyEVPolicies() {
 	console.log('drawSankey Policies')
-	const margin = {top: 200, bottom: 20, left: 200, right: 10}
+	const margin = {top: 200, bottom: 100, left: 200, right: 10}
     const width = 1400 - margin.left - margin.right
-    const height = 700 - margin.top - margin.bottom
+    const height = 800 - margin.top - margin.bottom
 
     const svg = d3.select('svg')
         .attr('width', width + margin.left + margin.right)
