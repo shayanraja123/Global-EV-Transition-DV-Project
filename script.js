@@ -5,6 +5,7 @@ import { create_funnelchart } from "./js/funnelchart_vis11.js";
 import { createBatteryCostVis } from "./js/batteryCost_vis2.js";
 import { createEVCarSalesVis } from "./js/carSales_vis3.js";
 import { createEVIncentiveBubbleChart } from "./js/bubbleChart_vis5.js";
+import { createGlobe } from "./js/globe_vis12.js";
 
 ///////////////////////////////////////////////////////////////////
 
@@ -58,6 +59,8 @@ function updateVisualization(step) {
       .attr('viewBox', [0, 0, 1000, 800])
     console.log('hi')
   }
+
+  document.getElementById("globe-controls").style.display = "none";
   
   if (step === 1) {
     create_choropleth_vis1();
@@ -148,20 +151,9 @@ function updateVisualization(step) {
       playdiv.style.display = 'none';
   }
   else if (step === 12) {
-    vis.selectAll("rect")
-      .data([100, 200, 300])
-      .enter()
-      .append("rect")
-      .attr("x", (d, i) => 100 + i * 120)
-      .attr("y", 400)
-      .attr("width", 80)
-      .attr("height", 0)
-      .attr("fill", "#FF9800")
-      .transition()
-      .duration(800)
-      .attr("y", d => 400 - d)
-      .attr("height", d => d);
+    createGlobe();
       playdiv.style.display = 'none';
+      document.getElementById("globe-controls").style.display = "block";
   }
     // vis.classed("visible", true);
 }
