@@ -130,12 +130,18 @@
 				</section>
 			</div>
 			<div id="vis-panel">
-				<svg id="main-vis"></svg>
-				<center>
-				<div id="playdiv" ><button id="playbtn" onclick="playclicked()">Play</button>
-					<span id="slidervalue">1990</span> 
-					<input id="slider" type="range" min="1990" max="2021" value="1990" style="width:500px;" oninput="sliderchanged()">
-			   
+				<div id="globe-wrapper">
+					<svg id="main-vis"></svg>
+					<center>
+					<div id="playdiv" ><button id="playbtn" onclick="playclicked()">Play</button>
+						<span id="slidervalue">1990</span> 
+						<input id="slider" type="range" min="1990" max="2021" value="1990" style="width:500px;" oninput="sliderchanged()">
+					</div>
+					<div id="globe-controls" style="display:none;">
+						<span id="year-label">1990</span>
+						<input type="range" id="year-slider" min="1990" max="2035" value="1990" />
+						<button id="play-pause-btn">Pause</button>
+					</div>
 				</div>
 			</center>
 			
@@ -143,11 +149,15 @@
 		</div>
         <script src="https://d3js.org/d3.v7.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+		<script src="https://d3js.org/topojson.v3.min.js"></script>
 		<script type="module" src="script.js"></script>
         <script type="module" src="js/polarChart.js"></script>
         <script type="module" src="js/stepSankey_vis6.js"></script>
 		<script type="module" src="js/batteryCost_vis2.js"></script>
 		<script type="module" src="js/carSales_vis3.js"></script>
 		<script type="module" src="js/bubbleChart_vis5.js"></script>
+		<script type="module" src="js/globe_vis12.js"></script>
+
+		<div class="tooltip" id="tooltip" style="position: absolute; display: none;"></div>
 	</body>
 </html>
