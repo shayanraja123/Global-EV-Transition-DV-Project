@@ -8,15 +8,15 @@ let aps_data = null
 // https://d3-graph-gallery.com/graph/circular_barplot_double.html
 
 function drawPolarChart() {
-    const margin = {top: 100, right: 20, bottom: 20, left: 200},
+    const margin = {top: 20, right: 20, bottom: 20, left: 200},
         width = 800 - margin.left - margin.right,
         height = 800 - margin.top - margin.bottom,
         innerRadius = 100,
         outerRadius = Math.min(width, height) / 2
 
-    const svg = d3.select('svg')
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
+    const svg = d3.select('#main-vis')
+        // .attr("width", width + margin.left + margin.right)
+        // .attr("height", height + margin.top + margin.bottom)
         .append("g")
             .attr("transform", `translate(${width/2+margin.left}, ${height/2+margin.top})`)
 

@@ -99,7 +99,9 @@ body {
 }
 
 #scrolly-container.background-mode #main-vis {
-  background: white;
+  background: rgb(243, 243, 243);
+  width: 100vw;
+  height: 100vh;
 }
 
 #scrolly-container.background-mode #text-panel {
