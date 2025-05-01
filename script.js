@@ -26,7 +26,7 @@ const observer = new IntersectionObserver(entries => {
       updateVisualization(step);
     }
   });
-}, { threshold: 0.59 });
+}, { threshold: 0.59, rootMargin: "0px 0px -10% 0px"});
 
 steps.each(function() {
   observer.observe(this);
@@ -45,7 +45,7 @@ function updateVisualization(step) {
   vis.selectAll("*").remove();
   // vis.classed("visible", false);
 
-  if (step === 7) {
+  if (step === 6) {
     container.classed("background-mode", true)
 
   } else {
@@ -95,25 +95,26 @@ function updateVisualization(step) {
       playdiv.style.display = 'none';
   }
   else if (step === 5) {
-    createPolarChart()
+    
     playdiv.style.display = 'none';
     
   }
   else if (step === 6) {
-    vis.append("text")
-      .attr("x", 100)
-      .attr("y", 400)
-      .attr("font-size", "0px")
-      .attr("fill", "#673AB7")
-      .text("More top stuff")
-      .transition()
-      .duration(800)
-      .attr("y", 200)
-      .attr("font-size", "24px");
+    createStepSankey()
+   
       playdiv.style.display = 'none';
   }
   else if (step === 7) {
-    createStepSankey()
+    vis.append("text")
+    .attr("x", 100)
+    .attr("y", 400)
+    .attr("font-size", "0px")
+    .attr("fill", "#673AB7")
+    .text("More top stuff")
+    .transition()
+    .duration(800)
+    .attr("y", 200)
+    .attr("font-size", "24px");
     playdiv.style.display = 'none';
   }
   else if (step === 8) {
@@ -134,19 +135,7 @@ function updateVisualization(step) {
       playdiv.style.display = 'none';
   }
   else if (step === 9) {
-    vis.selectAll("rect")
-      .data([100, 200, 300])
-      .enter()
-      .append("rect")
-      .attr("x", (d, i) => 100 + i * 120)
-      .attr("y", 400)
-      .attr("width", 80)
-      .attr("height", 0)
-      .attr("fill", "#FF9800")
-      .transition()
-      .duration(800)
-      .attr("y", d => 400 - d)
-      .attr("height", d => d);
+    createPolarChart()
       playdiv.style.display = 'none';
   }
   else if (step === 10) {
