@@ -61,7 +61,7 @@ export function createBatteryCostVis() {
 
         // horizontal gridlinesin the bg for easier price comparison
         chartCanvas.append("g")
-        .attr("class", "grid-lines")
+        .attr("class", "grid")
         .selectAll("line")
         .data(priceTicks)
         .enter()
