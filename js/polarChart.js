@@ -154,9 +154,8 @@ function drawPolarChart() {
         .data(['Projected Growth of Charging Ports (Slow and Fast Units)'])
         .join(
             enter => enter.append('text')
-                .style('position', 'absolute')
                 .attr('x', -340)
-                .attr('y', -(width/2)+130)
+                .attr('y', -(outerRadius)-45)
                 .attr('dy', '0.35em')
                 .style('font-weight', 700)
                 .style('font-size', '24px')
