@@ -120,7 +120,7 @@ body {
 
 
 
-/* ----- Visualization 2 (Battery Cost Decline Road Plot) Specific Styles ----- */
+/* ----- Visualization 2 specific styles ----- */
 
 .header {
   text-align: center;
@@ -151,8 +151,37 @@ body {
   height: auto;
 }
 
-.grid-lines line {
-  stroke: #ccc;               
+
+/* ----- Visualization 3 specific styles ----- */
+
+
+.grid line {
+  stroke: #ccc;
+  stroke-opacity: 1;
   stroke-width: 2;
   stroke-dasharray: 4 3;
+}
+
+.grid path {
+  display: none;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  pointer-events: none;
+  border-radius: 5px;
+  line-height: 1.5;
+  opacity: 0;
+  z-index: 9999;
+}
+.tooltip strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
