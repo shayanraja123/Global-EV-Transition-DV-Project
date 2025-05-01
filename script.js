@@ -6,6 +6,7 @@ import { createBatteryCostVis } from "./js/batteryCost_vis2.js";
 import { createEVCarSalesVis } from "./js/carSales_vis3.js";
 import { createEVIncentiveBubbleChart } from "./js/bubbleChart_vis5.js";
 import { createGlobe } from "./js/globe_vis12.js";
+import {create_choropleth_viz4} from "./js/choropleth_viz4.js"
 
 ///////////////////////////////////////////////////////////////////
 
@@ -56,7 +57,7 @@ function updateVisualization(step) {
     vis
       .attr('width', 1000)
       .attr('height', 800)
-      .attr('viewBox', [0, 0, 1000, 800])
+      .attr('viewbox', [0, 0, 1000, 800])
     console.log('hi')
   }
 
@@ -75,17 +76,8 @@ function updateVisualization(step) {
     playdiv.style.display = 'none';
   }
   else if (step === 4) {
-    vis.append("text")
-      .attr("x", 100)
-      .attr("y", 400)
-      .attr("font-size", "0px")
-      .attr("fill", "#673AB7")
-      .text("Top EV-Adopting Countries")
-      .transition()
-      .duration(800)
-      .attr("y", 200)
-      .attr("font-size", "24px");
-      playdiv.style.display = 'none';
+    create_choropleth_viz4(); 
+    playdiv.style.display = 'block';
   }
   else if (step === 5) {
     createEVIncentiveBubbleChart();
