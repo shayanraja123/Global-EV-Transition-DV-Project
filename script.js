@@ -7,6 +7,7 @@ import { createEVCarSalesVis } from "./js/carSales_vis3.js";
 import { createEVIncentiveBubbleChart } from "./js/bubbleChart_vis5.js";
 import { createGlobe } from "./js/globe_vis12.js";
 import {create_choropleth_viz4} from "./js/choropleth_viz4.js"
+import {createLinechart} from "./js/linechart_vis7.js"
 
 ///////////////////////////////////////////////////////////////////
 
@@ -90,16 +91,7 @@ function updateVisualization(step) {
     playdiv.style.display = 'none';
   }
   else if (step === 7) {
-    vis.append("text")
-    .attr("x", 100)
-    .attr("y", 400)
-    .attr("font-size", "0px")
-    .attr("fill", "#673AB7")
-    .text("More top stuff")
-    .transition()
-    .duration(800)
-    .attr("y", 200)
-    .attr("font-size", "24px");
+    createLinechart();
     playdiv.style.display = 'none';
   }
   else if (step === 8) {
