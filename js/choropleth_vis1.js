@@ -11,7 +11,7 @@ var path = d3.geoPath();
 var projection = d3.geoMercator()
   .scale(120)
   .center([-70,80])
-  .translate([375 , 130]);
+  .translate([360 , 80]);
   var co2map = new Map();
   var colorscale = d3.scaleThreshold()
   .domain([1000000, 3000000, 10000000, 30000000, 100000000, 300000000,1000000000])
@@ -22,8 +22,12 @@ export function create_choropleth_vis1(){
     .attr("height", chartHeight + chartMargins.top + chartMargins.bottom - 40)
     .append("g")
         .attr("transform", `translate(${chartMargins.left},${chartMargins.top})`);
+
+  const play_div = d3.select('#playdiv')
+  play_div.style('margin-top', '-130px')
      
  function playclicked(){
+  
   var playbtn=document.getElementById("playbtn");
   var slider=document.getElementById("slider");
   var slidervalue=document.getElementById("slidervalue");
@@ -136,7 +140,7 @@ window.sliderchanged=sliderchanged;
     .attr("id","colorlegend")
     .style("opacity",1)
     .attr("x",260)
-    .attr("y",605)
+    .attr("y",530)
 
    
 
@@ -145,7 +149,7 @@ window.sliderchanged=sliderchanged;
 
 function ready( topo) {
 
-  svg.append("g")
+  svg
     .selectAll("path")
     .data(topo.features.filter(d=>d.properties.name!="Antarctica"))
     .enter()

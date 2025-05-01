@@ -1,10 +1,14 @@
 export function create_choropleth_viz4() {
-  const width = 1000;
-  const height = window.innerHeight-50;
+  const margin = {top: 0, bottom: 300, left: 0, right: 0}
+
+  const width = 1000 - margin.left - margin.right;
+  const height = 800 - margin.top - margin.bottom;
 
   const svg = d3.select("#main-vis")
-    .attr("width", width)
-    .attr("height", height);
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append('g')
+      .attr('transform', `translate(${margin.left}, ${margin.top})`)
 
   // Add legend container before timeline
   const legendGroup = svg.append("g")
@@ -220,10 +224,12 @@ export function create_choropleth_viz4() {
 
     const slider = document.getElementById("slider");
     const playdiv = document.getElementById("playdiv");
+    const play_div = d3.select('#playdiv')
+    play_div.style('margin-top', '-220px')
     if (slider && playdiv) {
-      playdiv.style.position = "absolute";
-      playdiv.style.left = "220px";
-      playdiv.style.bottom = "10px";
+      // playdiv.style.position = "absolute";
+      // playdiv.style.left = "220px";
+      // playdiv.style.bottom = "10px";
       slider.setAttribute("min", "2010");
       slider.setAttribute("max", "2023");
       slider.setAttribute("value", "2023");

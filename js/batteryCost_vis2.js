@@ -1,6 +1,6 @@
 export function createBatteryCostVis() {
     
-    const chartMargins = { top: 100, right: 40, bottom: 200, left: 80 },
+    const chartMargins = { top: 100, right: 60, bottom: 200, left: 80 },
         chartWidth = 1000 - chartMargins.left - chartMargins.right,
         chartHeight = 800 - chartMargins.top - chartMargins.bottom;
 

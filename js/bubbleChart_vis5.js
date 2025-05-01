@@ -10,7 +10,7 @@ export function createEVIncentiveBubbleChart() {
   
     function drawBubbleChart() {
     //   const margin = { top: 140, bottom: 60, left: 100, right: 100 };
-      const margin = { top: 60, bottom: 30, left: 80, right: 40 };
+      const margin = { top: 100, bottom: 100, left: 80, right: 70 };
       const width = 1000 - margin.left - margin.right;
       const height = 700 - margin.top - margin.bottom;
   
@@ -18,6 +18,9 @@ export function createEVIncentiveBubbleChart() {
       svg.selectAll("*").remove(); // clean slate
   
       const chartGroup = svg
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
+        .attr('viewBox', null)
         .append("g")
         .attr("transform", `translate(${margin.left}, ${margin.top})`);
   

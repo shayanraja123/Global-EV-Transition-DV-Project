@@ -1,10 +1,11 @@
 export function createEVCarSalesVis() {
 
-    const layout_padding = { top: 100, right: 40, bottom: 30, left: 80 },
+    const layout_padding = { top: 100, right: 40, bottom: 80, left: 100 },
     chartW = 1000 - layout_padding.left - layout_padding.right,
     chart_height = window.innerHeight - layout_padding.top - layout_padding.bottom;
 
     const chart_root = d3.select("#main-vis")
+        .attr('viewBox', null)
     // .append("svg")
     // .attr("width", chartW + layout_padding.left + layout_padding.right)
     // .attr("height", chart_height + layout_padding.top + layout_padding.bottom)

@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: 'Helvetica Neue', sans-serif;
   background: #e6eef4;
+  align-items: flex-start;
 }
 
 #scrolly-container {
