@@ -1,6 +1,10 @@
 var playstatus=false;
     var interval;
     var svg = d3.select("#main-vis")
+    const chartMargins = { top: 100, right: 40, bottom: 100, left: 80 },
+      chartWidth = 1000 - chartMargins.left - chartMargins.right,
+      chartHeight = 800 - chartMargins.top - chartMargins.bottom;
+    
     //.style("width",800).style("height",550).style("display","block").style("flex-direction","column");
 var path = d3.geoPath();
 
@@ -13,7 +17,11 @@ var projection = d3.geoMercator()
   .domain([1000000, 3000000, 10000000, 30000000, 100000000, 300000000,1000000000])
   .range([d3.interpolateYlOrBr(0.1),d3.interpolateYlOrBr(0.2),d3.interpolateYlOrBr(0.3),d3.interpolateYlOrBr(0.5),d3.interpolateYlOrBr(0.6),d3.interpolateYlOrBr(0.7),d3.interpolateYlOrBr(0.8),d3.interpolateYlOrBr(1)]);
 export function create_choropleth_vis1(){
-  
+  svg
+    .attr("width", chartWidth + chartMargins.left + chartMargins.right)
+    .attr("height", chartHeight + chartMargins.top + chartMargins.bottom - 40)
+    .append("g")
+        .attr("transform", `translate(${chartMargins.left},${chartMargins.top})`);
      
  function playclicked(){
   var playbtn=document.getElementById("playbtn");

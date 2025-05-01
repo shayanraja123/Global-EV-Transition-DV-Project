@@ -1,8 +1,8 @@
 export function createBatteryCostVis() {
     
-    const chartMargins = { top: 60, right: 40, bottom: 30, left: 80 },
+    const chartMargins = { top: 100, right: 40, bottom: 200, left: 80 },
         chartWidth = 1000 - chartMargins.left - chartMargins.right,
-        chartHeight = 700 - chartMargins.top - chartMargins.bottom;
+        chartHeight = 800 - chartMargins.top - chartMargins.bottom;
 
     // Mount the main SVG and group element
     const chartCanvas = d3.select("#main-vis")

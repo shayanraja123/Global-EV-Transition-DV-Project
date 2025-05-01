@@ -2,9 +2,9 @@ let dataset = null
 
 function drawSankeyEVPolicies() {
 	console.log('drawSankey Policies')
-	const margin = {top: 200, bottom: 100, left: 200, right: 20}
-    const width = 1400 - margin.left - margin.right
-    const height = 800 - margin.top - margin.bottom
+	const margin = {top: 200, bottom: 100, left: 200, right: 0}
+    const width = window.innerWidth - margin.left - margin.right
+    const height = window.innerHeight - margin.top - margin.bottom
 
     const svg = d3.select('svg')
         .attr('width', width + margin.left + margin.right)
@@ -221,7 +221,7 @@ function drawSankeyEVPolicies() {
 		.join(
 			enter => enter.append('text')
 				.attr('class', 'title')
-				.attr('x', 300)
+				.attr('x', -(window.innerWidth / 4) + window.innerWidth / 2)
 				.attr('y', -125)
 				.attr('font-size', '24px')
 				.style('font-weight', 700)
