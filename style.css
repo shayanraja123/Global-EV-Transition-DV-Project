@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Helvetica Neue', sans-serif;
-  background: #f9f9f9;
+  background: #e6eef4;
 }
 
 #scrolly-container {
@@ -177,7 +177,6 @@ body {
   pointer-events: none;
   border-radius: 5px;
   line-height: 1.5;
-  opacity: 0;
   z-index: 9999;
 }
 .tooltip strong {
@@ -199,7 +198,7 @@ body {
   margin: 0 10px;
 }
 
-#tooltip {
+#tooltip_vis12 {
   background: rgba(0, 0, 0, 0.85);
   color: #fff;
   padding: 10px 12px;
@@ -215,13 +214,13 @@ body {
   opacity: 1 !important;
 }
 
-#tooltip strong {
+#tooltip_vis12 strong {
   display: block;
   font-weight: bold;
   margin-bottom: 4px;
 }
 
-#tooltip {
+#tooltip_vis12 {
   opacity: 1 !important;
 }
 /* -----Globe Controls End----*/

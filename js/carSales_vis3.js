@@ -1,8 +1,8 @@
 export function createEVCarSalesVis() {
 
-    const layout_padding = { top: 60, right: 40, bottom: 30, left: 80 },
+    const layout_padding = { top: 100, right: 40, bottom: 30, left: 80 },
     chartW = 1000 - layout_padding.left - layout_padding.right,
-    chart_height = 700 - layout_padding.top - layout_padding.bottom;
+    chart_height = window.innerHeight - layout_padding.top - layout_padding.bottom;
 
     const chart_root = d3.select("#main-vis")
     // .append("svg")
@@ -97,11 +97,12 @@ export function createEVCarSalesVis() {
     );
 
     // const info_box = d3.select("#tooltip");
-    let info_box = d3.select(".tooltip");
+    let info_box = d3.select("#tooltip_vis3");
     if (info_box.empty()) {
         info_box = d3.select("body")
             .append("div")
             .attr("class", "tooltip")
+            .attr('id', 'tooltip_vis3')
             .style("opacity", 0);
 }
 

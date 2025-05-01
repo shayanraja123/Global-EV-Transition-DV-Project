@@ -32,12 +32,13 @@ export function createEVIncentiveBubbleChart() {
         .attr("fill", "#111");
   
       // Tooltip setup (safe re-init)
-      let tooltip = d3.select(".tooltip");
+      let tooltip = d3.select("#tooltip_vis5");
       if (tooltip.empty()) {
         tooltip = d3
           .select("body")
           .append("div")
           .attr("class", "tooltip")
+          .attr("id", "tooltip_vis5")
           .style("position", "absolute")
           .style("background-color", "white")
           .style("border", "1px solid #ccc")

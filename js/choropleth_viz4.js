@@ -1,6 +1,6 @@
 export function create_choropleth_viz4() {
-  const width = 960;
-  const height = 540;
+  const width = 1000;
+  const height = window.innerHeight-50;
 
   const svg = d3.select("#main-vis")
     .attr("width", width)

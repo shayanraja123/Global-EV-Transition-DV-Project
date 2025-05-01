@@ -23,7 +23,7 @@ Promise.all([
   
     const path = d3.geoPath().projection(projection);
     const svg = d3.select("#main-vis").attr("width", width).attr("height", height);
-    const tooltip = d3.select("#tooltip");
+    const tooltip = d3.select('#tooltip_vis12');
   
     svg.selectAll("*").remove(); 
     const globe = svg.append("circle")
@@ -77,6 +77,7 @@ Promise.all([
             const emission = emissionsData[d.properties.name]?.[year] || 0;
             tooltip
               .style("display", "block")
+              .style('opacity', 1)
               .style("left", (event.pageX + 10) + "px")
               .style("top", (event.pageY - 30) + "px")
               .html(`<strong>${d.properties.name}</strong><br/>${formatEmission(emission)} t CO₂`);
