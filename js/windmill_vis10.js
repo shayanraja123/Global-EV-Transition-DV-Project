@@ -16,12 +16,13 @@ export function createwindmill_vis10() {
 
   // State Variables
   let sortAscending = false;
-  let groupedData = [], fullData = [], yearIndex = 0, isPlaying = true, yearsList = [], yearScaleContainer;
+  let groupedData = [], fullData = [], yearIndex = window.yearIndexForWindmill || 0, isPlaying = true, yearsList = [], yearScaleContainer;
   let rScale, radarPath;
   let windowStartIndex = 0;
   const windowSize = 13;
   let manuallyPaused = false;
-  let justEnteredVis10 = false;
+  window.windmillReady = false;
+
 
 
   // DOM Elements
@@ -59,6 +60,10 @@ export function createwindmill_vis10() {
     renderYearScale();
     setupRadarChart();
     rotateBlades();
+    setTimeout(() => {
+      window.windmillReady = true;
+    }, 800); // delay ensures no re-entry loop
+    
   });
 
   // Windmill Visualization
@@ -315,7 +320,12 @@ export function createwindmill_vis10() {
     const windmillStep = document.querySelector(".step[data-step='10']");
     const isVisible = windmillStep.classList.contains("active");
   
-    if (!isVisible) return; // only work during step 10
+    // NEW: Only trap scroll if mouse is directly over the SVG
+    const isInsideWindmill = e.target.closest("svg") || e.target.closest("#windmill-ui");
+    if (!isVisible || !isInsideWindmill) return;
+  
+
+
   
     // Only prevent scroll if we are NOT at boundaries
     const delta = e.deltaY;
@@ -357,6 +367,10 @@ export function createwindmill_vis10() {
       renderYearScale();
       updateRadar(true);
     }
+    setTimeout(() => {
+      rotateBlades();
+    }, 600); // start animation only after scroll lock is safe
+    
     // else: allow normal scrolling to other steps
   }, { passive: false });
   

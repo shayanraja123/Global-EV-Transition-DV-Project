@@ -56,6 +56,11 @@ function updateVisualization(step) {
 
   if (step === 6) {
     container.classed("background-mode", true)
+  if (step === 10 && window.windmillReady === false) {
+      console.log("Delaying re-entry to vis10");
+      return; // wait until windmill is ready
+    }
+    
 
   } else {
     container.classed("background-mode", false)
@@ -131,10 +136,19 @@ function updateVisualization(step) {
     createPolarChart()
     playdiv.style.display = 'none';
   }
-else if (step === 10) {
-  playdiv.style.display = 'none';
-  createwindmill_vis10();
-}
+  else if (step === 10) {
+    playdiv.style.display = 'none';
+  
+    // Reset scroll state for windmill to prevent bounce-forward
+    window.yearIndexForWindmill = 0;
+  
+    setTimeout(() => {
+      createwindmill_vis10();
+    }, 1000);
+  }
+  
+  
+  
 
   else if (step === 11) {
    create_funnelchart();
