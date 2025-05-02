@@ -19,7 +19,7 @@ export function createwindmill_vis10() {
   let groupedData = [], fullData = [], yearIndex = 0, isPlaying = true, yearsList = [], yearScaleContainer;
   let rScale, radarPath;
   let windowStartIndex = 0;
-  const windowSize = 10;
+  const windowSize = 13;
   let manuallyPaused = false;
 
   // DOM Elements
@@ -28,8 +28,8 @@ export function createwindmill_vis10() {
     .attr("height", height);
 
   const yearLabel = svg.append("text")
-    .attr("x", width - 20)
-    .attr("y", 30)
+    .attr("x", width - 300)
+    .attr("y", 100)
     .attr("text-anchor", "end")
     .attr("font-size", "20px")
     .attr("font-weight", "bold")

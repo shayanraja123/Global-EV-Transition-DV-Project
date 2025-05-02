@@ -26,14 +26,14 @@ h1 {
   margin-right: 40px;
 }
 
-#year-scale-full-container-sshivap8 {
+#year-scale-full-container-sshivap8{
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding-top: 8px;
   gap: 12px;
   /* margin-top: -10px; */
-  transform: translate(-90px, -200px); /* ← X (left), ↑ Y (up) */
+  transform: translate(-0px, -200px); /* ← X (left), ↑ Y (up) */
 
 }
 
@@ -119,15 +119,12 @@ svg {
   font-size: 12px;
   fill: #666;
 }
-#data-box-sshivap8 {
-  outline: 1px solid red;
-  margin-top: -1000px;
-}
 
 
 #data-box-sshivap8 {
   width: 300px;
-  margin-left: 800px;
+  margin-left: 800px;      /* Move right */
+  margin-top: -1000px;        /* Move down */
   padding: 5px;
   background: #f9f9f9;
   border-left: 1px solid #ccc;
@@ -135,10 +132,12 @@ svg {
   flex-direction: column;
   align-items: center;
   border-radius: 12px;
+  outline: 1px solid red;   /* For debugging, optional */
 }
 
+
 #data-list-sshivap8 {
-  height: 620px;
+  height: 700px;
   overflow-y: scroll;
   overflow-x: hidden;
   width: 100%;
