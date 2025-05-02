@@ -155,7 +155,8 @@ export function createEVCarSalesVis() {
         console.log(yr)
     })
 
-    .on("mousemove", function(event){
+    .on("mousemove", function(event, d){
+        const yr = d.data.Year;
         info_box
         .style("left", (yr <= 2018 ? event.pageX + 50 : event.pageX - 280) + "px")
         .style("top", (event.pageY - 40) + "px");
