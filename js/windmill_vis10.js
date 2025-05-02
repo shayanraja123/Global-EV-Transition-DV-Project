@@ -21,6 +21,8 @@ export function createwindmill_vis10() {
   let windowStartIndex = 0;
   const windowSize = 13;
   let manuallyPaused = false;
+  let justEnteredVis10 = false;
+
 
   // DOM Elements
   const svg = d3.select("#main-vis").append("svg")
@@ -310,42 +312,54 @@ export function createwindmill_vis10() {
   let lastScrollTime = 0;
   const scrollCooldown = 150;
   window.addEventListener("wheel", (e) => {
-    const dataList = d3.select("#data-list-sshivap8")
-    if (e.target.closest("#data-list")) return;
-      e.preventDefault();
-    
-    if (!manuallyPaused) {
-      svg.selectAll(".blade").interrupt();
-      isPlaying = false;
-      toggleBtn.textContent = "Play";
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        isPlaying = true;
-        toggleBtn.textContent = "Pause";
-        rotateBlades();
-      }, 500);
-    }
-    
-    const now = Date.now();
-    if (now - lastScrollTime < scrollCooldown) return;
-    lastScrollTime = now;
-    
+    const windmillStep = document.querySelector(".step[data-step='10']");
+    const isVisible = windmillStep.classList.contains("active");
+  
+    if (!isVisible) return; // only work during step 10
+  
+    // Only prevent scroll if we are NOT at boundaries
     const delta = e.deltaY;
-    if (delta > 0 && yearIndex < yearsList.length - 1) {
-      yearIndex++;
-    } else if (delta < 0 && yearIndex > 0) {
-      yearIndex--;
+  
+    const atStart = yearIndex === 0 && delta < 0;
+    const atEnd = yearIndex === yearsList.length - 1 && delta > 0;
+  
+    if (!atStart && !atEnd) {
+      e.preventDefault(); // trap scroll only in middle range
+  
+      if (!manuallyPaused) {
+        svg.selectAll(".blade").interrupt();
+        isPlaying = false;
+        toggleBtn.textContent = "Play";
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          isPlaying = true;
+          toggleBtn.textContent = "Pause";
+          rotateBlades();
+        }, 500);
+      }
+  
+      const now = Date.now();
+      if (now - lastScrollTime < scrollCooldown) return;
+      lastScrollTime = now;
+  
+      if (delta > 0 && yearIndex < yearsList.length - 1) {
+        yearIndex++;
+      } else if (delta < 0 && yearIndex > 0) {
+        yearIndex--;
+      }
+  
+      if (yearIndex >= windowStartIndex + windowSize) {
+        windowStartIndex = yearIndex - windowSize + 1;
+      } else if (yearIndex < windowStartIndex) {
+        windowStartIndex = yearIndex;
+      }
+  
+      renderYearScale();
+      updateRadar(true);
     }
-    
-    if (yearIndex >= windowStartIndex + windowSize) {
-      windowStartIndex = yearIndex - windowSize + 1;
-    } else if (yearIndex < windowStartIndex) {
-      windowStartIndex = yearIndex;
-    }
-    
-    renderYearScale();
-    updateRadar(true);
+    // else: allow normal scrolling to other steps
   }, { passive: false });
+  
 
   // Fix year scale scroll handling
   document.getElementById('year-scale-container-sshivap8').addEventListener('scroll', () => {
