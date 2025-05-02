@@ -149,7 +149,7 @@ export function create_choropleth_viz4() {
           EV Sales: ${countryData?.sales !== undefined ? countryData.sales.toLocaleString() : "No data"}<br/>
           <svg id="mini-chart" width="200" height="50"></svg>
         `)
-          .style("left", (event.pageX + 10) + "px")
+          .style("left", (event.pageX < 1100 ? event.pageX + 10 : event.pageX - 300) + "px")
           .style("top", (event.pageY - 40) + "px");
 
         if (countryData?.timeseries) {
@@ -163,6 +163,11 @@ export function create_choropleth_viz4() {
             .attr("stroke-width", 1.5)
             .attr("fill", "none");
         }
+      })
+      .on("mousemove", function(event, d) {
+        tooltip
+          .style("left", (event.pageX < 1100 ? event.pageX + 10 : event.pageX - 300) + "px")
+          .style("top", (event.pageY - 40) + "px");
       })
       .on("mouseout", function () {
         d3.select(this).attr("stroke", "#999").attr("stroke-width", 1);
