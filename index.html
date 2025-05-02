@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>The Global EV-olution</title>
 		<link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="windmill_vis10.css" />
 		
 		
 	</head>
@@ -232,6 +233,26 @@
                     <input type="range" id="year-slider" min="1990" max="2035" value="1990" />
                     <button id="play-pause-btn">Pause</button>
                 </div>
+                <div id="windmill-ui" class="windmill_viz10">
+
+					<div class="top-section-sshivap8">
+					  <div id="data-box-sshivap8">
+						<h3>Country rankings</h3>
+						<button id="sort-btn-sshivap8">Sort: Descending</button>
+						<div id="data-list-sshivap8"></div>
+					  </div>
+					</div>
+					<div id="year-scale-full-container-sshivap8">
+					  <div id="year-scale-wrapper-sshivap8">
+						<div id="year-scale-container-sshivap8">
+						  <div id="year-scale-sshivap8"></div>
+						</div>
+						<div id="controls-sshivap8">
+						  <button id="toggle-btn-sshivap8">Pause</button>
+						</div>
+					  </div>
+					</div>
+				  </div>
 			</center>
 		</div>
 		</div>
@@ -249,7 +270,9 @@
 		<script type="module" src="js/bubbleChart_vis5.js"></script>
 		<script type="module" src="js/globe_vis12.js"></script>
 		<script type="module" src="js/choropleth_viz4.js"></script>
+        <script type="module" src="js/windmill_vis10.js"></script>
         <div class="tooltip" id="tooltip_vis12" style="position: absolute; display: none;"></div>
+
 
 
 	</body>
