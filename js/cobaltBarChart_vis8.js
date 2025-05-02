@@ -17,7 +17,7 @@ export function createLithiumCobaltVis() {
     chartDiv.style.flexDirection = "column";
     chartDiv.style.justifyContent = "center";
     chartDiv.style.alignItems = "center";
-    chartDiv.style.marginTop = "75px";
+    chartDiv.style.marginTop = "30px";
     container.appendChild(chartDiv);
   
     const chart = echarts.init(chartDiv);
