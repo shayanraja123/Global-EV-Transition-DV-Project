@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>The Global EV-olution</title>
 		<link rel="stylesheet" href="style.css" />
-		<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+		
 		
 	</head>
 	<body>
@@ -221,6 +221,7 @@
 			</div>
 			<div id="vis-panel">
                 <svg id="main-vis"></svg>
+				<div id="vis8-container" style="width:1000px; height:600px; margin:auto; display:none;"></div>
                 <center>
                 <div id="playdiv" ><button id="playbtn" onclick="playclicked()">Play</button>
                     <span id="slidervalue">1990</span> 
@@ -232,12 +233,14 @@
                     <button id="play-pause-btn">Pause</button>
                 </div>
 			</center>
-
 		</div>
 		</div>
         <script src="https://d3js.org/d3.v7.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
 		<script src="https://d3js.org/topojson.v3.min.js"></script>
+		
+		<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
 		<script type="module" src="script.js"></script>
         <script type="module" src="js/polarChart.js"></script>
         <script type="module" src="js/stepSankey_vis6.js"></script>
@@ -246,9 +249,8 @@
 		<script type="module" src="js/bubbleChart_vis5.js"></script>
 		<script type="module" src="js/globe_vis12.js"></script>
 		<script type="module" src="js/choropleth_viz4.js"></script>
-		<script type="module" src="js/linechart_vis7.js"></script>
-
         <div class="tooltip" id="tooltip_vis12" style="position: absolute; display: none;"></div>
+
 
 	</body>
 </html>
