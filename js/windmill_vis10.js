@@ -311,7 +311,7 @@ export function createwindmill_vis10() {
   let scrollTimeout = null;
   let lastScrollTime = 0;
   const scrollCooldown = 150;
-  window.addEventListener("wheel", (e) => {
+  document.querySelector("#vis-panel").addEventListener("wheel", (e) => {
     const windmillStep = document.querySelector(".step[data-step='10']");
     const isVisible = windmillStep.classList.contains("active");
   
