@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EV Sales Map (2010–2023)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #map-container {
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 20px;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .tooltip {
+      position: absolute;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 13px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      pointer-events: none;
+      width: 240px;
+      z-index: 1000;
+    }
+
+    #controls {
+      width: 90%;
+      max-width: 900px;
+      margin: 30px auto;
+      text-align: center;
+    }
+
+    #slider-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .year-label {
+      font-size: 16px;
+      padding: 0 10px;
+      color: #555;
+    }
+
+    #play-button {
+      padding: 8px 14px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      background: #eee;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    #year-slider {
+      flex-grow: 1;
+      margin: 0 10px;
+    }
+
+    #legend {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      font-size: 13px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .legend-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 4px;
+    }
+
+    .legend-color {
+      width: 30px;
+      height: 10px;
+      margin-bottom: 4px;
+    }
+
+    .legend-text {
+      font-size: 11px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div id="map-container">
+    <div id="map"></div>
+  </div>
+
+  <div id="legend">
+    <div class="legend-item"><div class="legend-color" style="background:#f7f7f7;"></div><div class="legend-text">0</div></div>
+    <div class="legend-item"><div class="legend-color" style="background:#fee8c8;"></div><div class="legend-text">100K</div></div>
+    <div class="legend-item"><div class="legend-color" style="background:#fdbb84;"></div><div class="legend-text">200K</div></div>
+    <div class="legend-item"><div class="legend-color" style="background:#fc8d59;"></div><div class="legend-text">500K</div></div>
+    <div class="legend-item"><div class="legend-color" style="background:#ef6548;"></div><div class="legend-text">1M</div></div>
+    <div class="legend-item"><div class="legend-color" style="background:#d7301f;"></div><div class="legend-text">2M</div></div>
+    <div class="legend-item"><div class="legend-color" style="background:#990000;"></div><div class="legend-text">5M+</div></div>
+  </div>
+
+  <div id="controls">
+    <div id="slider-controls">
+      <button id="play-button">▶</button>
+      <span class="year-label">2010</span>
+      <input type="range" id="year-slider" min="2010" max="2023" value="2023">
+      <span class="year-label">2023</span>
+    </div>
+    <div id="year-label">Year: 2023</div>
+  </div>
+
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="https://d3js.org/topojson.v2.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>

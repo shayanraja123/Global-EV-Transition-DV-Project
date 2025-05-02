@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>The Global EV-olution</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="windmill_vis10.css" />
+
+		
+		
+	</head>
+	<body>
+		<div id="progress-bar"></div>
+		<div id="scrolly-container">
+			<div id="text-panel">
+				<section class="step" data-step="1">
+					<h2 class="page-header">
+						Why the World Is Shifting to Electric Vehicles
+					</h2>
+					<p> The shift to electric vehicles (EVs) isn't just about cleaner cars but safeguarding our future.</p>
+					<p> As we can see, transportation has been a major and growing contributor to global CO₂ emissions.</p>
+					<p> Technological advances are also making change more affordable.</p>
+					<p><i>Transportation-related CO₂ emissions have surged globally over the past decades..</i></p>
+
+					<div class="next-arrow">↓</div>
+				</section>
+				<section class="step" data-step="2"> <!--ARBITRARY-->
+					<h2 class="page-header">Declining battery costs over time</h2>
+					<p>
+						Battery costs — once the single most significant barrier to EV adoption — have dropped dramatically, making EVs more accessible to consumers than ever before.
+					</p>
+					<p><i>Battery costs have plummeted, making EVs increasingly affordable.</i></p>
+					<div class="next-arrow">↓</div>
+				</section>
+				<section class="step" data-step="3">
+					<h2 class="page-header">EVs are no longer the Future — They are the Present
+					</h2>
+					<p>
+						The momentum behind electric vehicles is undeniable. Over the past decade, EV sales have skyrocketed, reshaping the global auto industry.
+					</p>
+					<p> A comparison of EV and gasoline car sales reveals a historic inflection point: EVs are no longer a niche but mainstream.</p>
+					<p> While global trends are encouraging, adoption varies significantly by country.</p>
+					<p> <i>EV sales are rising sharply as gasoline vehicles sales begin to platue.</i></p>
+					<div class="next-arrow">↓</div>
+				</section>
+				<section class="step" data-step="4">
+					<h2 class="page-header">Top 10 EV-selling countries and their market share</h2>
+					<p>
+						From Norway, with the world's highest EV adoption rate, to China, now the largest EV market, government policies, infrastructure investments, and consumer enthusiasm have propelled nations across the globe to the forefront of the EV revolution
+					</p>
+					<p><i>Leading nations in EV adoption, from early pioneers to emerging giants.</i></p>
+					<style>
+						* {
+						  box-sizing: border-box;
+						}
+					
+						body {
+						  font-family: Arial, sans-serif;
+						  background: #f5f5f5;
+						  margin: 0;
+						  display: flex;
+						  flex-direction: column;
+						  align-items: center;
+						}
+					
+						#map-container {
+						  width: 100%;
+						  max-width: 1200px;
+						  margin-top: 20px;
+						}
+					
+						svg {
+						  width: 100%;
+						  height: auto;
+						  display: block;
+						}
+					
+						.tooltip {
+						  position: absolute;
+						  background: white;
+						  border: 1px solid #ccc;
+						  padding: 10px;
+						  font-size: 13px;
+						  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+						  border-radius: 5px;
+						  pointer-events: none;
+						  width: 240px;
+						  z-index: 1000;
+						}
+					
+						#controls {
+						  width: 90%;
+						  max-width: 900px;
+						  margin: 30px auto;
+						  text-align: center;
+						}
+					
+						#slider-controls {
+						  display: flex;
+						  align-items: center;
+						  justify-content: space-between;
+						  margin-top: 10px;
+						}
+					
+						.year-label {
+						  font-size: 16px;
+						  padding: 0 10px;
+						  color: #555;
+						}
+					
+						#play-button {
+						  padding: 8px 14px;
+						  font-size: 14px;
+						  border: none;
+						  border-radius: 5px;
+						  background: #eee;
+						  cursor: pointer;
+						  margin-right: 10px;
+						}
+					
+						#year-slider {
+						  flex-grow: 1;
+						  margin: 0 10px;
+						}
+					
+						#legend {
+						  display: flex;
+						  align-items: center;
+						  margin-top: 20px;
+						  font-size: 13px;
+						  flex-wrap: wrap;
+						  justify-content: center;
+						}
+					
+						.legend-item {
+						  display: flex;
+						  flex-direction: column;
+						  align-items: center;
+						  margin: 0 4px;
+						}
+					
+						.legend-color {
+						  width: 30px;
+						  height: 10px;
+						  margin-bottom: 4px;
+						}
+					
+						.legend-text {
+						  font-size: 11px;
+						}
+					
+					  </style>
+                    <div class="next-arrow">↓</div>
+				</section>
+                <section class="step" data-step="5">
+					<h2 class="page-header">Policy: The Hidden Engine behind EV Growth
+					</h2>
+					<p>
+						Behind every EV boom is a set of strategic policies that made it possible.
+					</p>
+					<p> Subsidies, tax incentives, and ambitious regulations have proven instrumental in accelerating EV adoption.</p>
+					<p> A glance at global incentives shows the diverse strategies governments have used to drive change — from cash rebates to zero-emission vehicle mandates.
+						These efforts haven’t happened overnight.
+						</p>
+					<p> <i> Subsidies, tax credits, and other incentives vary widely across countries.</i></p>
+                    <div class="next-arrow">↓</div>
+				</section>
+                <section class="step" data-step="6">
+					<h2 class="page-header">Timeline of significant EV policies</h2>
+					<p>
+						Mapping the timeline of major EV policies highlights how sustained political commitment has fueled progress, setting the stage for a cleaner transportation future.
+					</p>
+					<p><i> Major EV policies over time have steered markets toward electrification.	</i></p>
+					<p> Mapping the timeline of major EV policies highlights how sustained political commitment has fueled progress, setting the stage for a cleaner transportation future.					</p>
+                    <div class="next-arrow">↓</div>
+				</section>
+                <section class="step" data-step="7">
+					<h2 class="page-header">Roadblocks on the Path to an Electric Future</h2>
+					<p>
+						Despite the surge in adoption, challenges remain. One of the biggest hurdles is infrastructure.
+					</p>
+					<p>
+						While EV sales are growing rapidly, charging infrastructure often lags behind, creating "charging deserts" in many regions.
+					</p>
+					<p> Another pressing issue is the environmental impact of EV production, particularly the mining of key battery materials like lithium and cobalt.	</p>
+					<p><i>EV adoption is outpacing the growth of charging infrastructure.
+					</i></p>
+                    <div class="next-arrow">↓</div>
+				</section>
+				<section class="step" data-step="8">
+					<h2 class="page-header">Global lithium & cobalt production by country</h2>
+					<p>
+						As demand for these minerals rises, questions about sustainable sourcing and recycling are becoming more urgent.
+					</p>
+					<p><i> The race for battery minerals raises environmental and ethical concerns.
+					</i></p>
+					<div class="next-arrow">↓</div>
+				</section>
+				<section class="step" data-step="9">
+					<h2 class="page-header"> Innovation will Drive the Next EV Revolution</h2>
+					<p>
+						Despite the challenges, the future of EVs is bright — and brimming with innovation. Emerging battery technologies, such as solid-state batteries, promise faster charging, longer range, and greater safety.
+					</p>
+					<p> The expansion of charging infrastructure is set to accelerate, addressing one of today’s biggest barriers to adoption.
+						Moreover, the synergy between EVs and renewable energy sources could redefine our energy systems.
+						</p>
+					<p><i>Charging networks are set to expand rapidly across the globe.</i></p>
+					<div class="next-arrow">↓</div>
+				</section>
+				<section class="step" data-step="10">
+					<h2 class="page-header">Share of renewable energy</h2>
+					<p>
+						As the share of renewables grows, EVs will increasingly run on cleaner grids, amplifying their environmental benefits.</p>
+					<p>Looking ahead, EVs are poised to dominate global car sales.</p>
+					<p><i>The cleaner the grid, the cleaner the EV — renewables are on the rise.</i></p>
+					<div class="next-arrow">↓</div>
+				</section>
+				<section class="step" data-step="11">
+					<h2 class="page-header">Global projections of EV market share by 2035</h2>
+					<p>
+						Projections suggest that by 2035, EVs could account for the majority of new car sales worldwide, transforming transportation as we know it.	</p>
+					<p> Finally, what could these shifts mean for the planet?</p>	
+					<p><i>EVs are projected to dominate global vehicle sales by 2035.</i></p>
+					<div class="next-arrow">↓</div>
+				</section>
+				<section class="step" data-step="12">
+					<h2 class="page-header">Simulation - How a country's emissions change with EV adoption</h2>
+					<p>
+						Through this interactive simulation, we can explore how increased EV adoption could dramatically reduce national emissions over time — offering a tangible path toward a greener, more sustainable world.
+					</p>
+					<p><i>Explore how increased EV adoption could reshape a country’s carbon future.</i></p>
+				</section>
+			</div>
+			<div id="vis-panel">
+                <svg id="main-vis"></svg>
+                <center>
+                <div id="playdiv" ><button id="playbtn" onclick="playclicked()">Play</button>
+                    <span id="slidervalue">1990</span> 
+                    <input id="slider" type="range" min="1990" max="2021" value="1990" style="width:500px;" oninput="sliderchanged()">
+                </div>
+                <div id="globe-controls" style="display:none;">
+                    <span id="year-label">1990</span>
+                    <input type="range" id="year-slider" min="1990" max="2035" value="1990" />
+                    <button id="play-pause-btn">Pause</button>
+                </div>
+				<div id="windmill-ui" class="windmill_viz10">
+
+					<div class="top-section-sshivap8">
+					  <div id="data-box-sshivap8">
+						<h3>Country rankings</h3>
+						<button id="sort-btn-sshivap8">Sort: Descending</button>
+						<div id="data-list-sshivap8"></div>
+					  </div>
+					</div>
+					<div id="year-scale-full-container-sshivap8">
+					  <div id="year-scale-wrapper-sshivap8">
+						<div id="year-scale-container-sshivap8">
+						  <div id="year-scale-sshivap8"></div>
+						</div>
+						<div id="controls-sshivap8">
+						  <button id="toggle-btn-sshivap8">Pause</button>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				  
+			</center>
+
+		</div>
+		</div>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+		<script src="https://d3js.org/topojson.v3.min.js"></script>
+		<script type="module" src="script.js"></script>
+        <script type="module" src="js/polarChart.js"></script>
+        <script type="module" src="js/stepSankey_vis6.js"></script>
+		<script type="module" src="js/batteryCost_vis2.js"></script>
+		<script type="module" src="js/carSales_vis3.js"></script>
+		<script type="module" src="js/bubbleChart_vis5.js"></script>
+		<script type="module" src="js/globe_vis12.js"></script>
+		<script type="module" src="js/choropleth_viz4.js"></script>
+        <div class="tooltip" id="tooltip_vis12" style="position: absolute; display: none;"></div>
+		<script type="module" src="js/windmill_vis10.js"></script>
+
+
+	</body>
+</html>
