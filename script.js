@@ -7,7 +7,8 @@ import { createEVCarSalesVis } from "./js/carSales_vis3.js";
 import { createEVIncentiveBubbleChart } from "./js/bubbleChart_vis5.js";
 import { createGlobe } from "./js/globe_vis12.js";
 import {create_choropleth_viz4} from "./js/choropleth_viz4.js"
-import {createLinechart} from "./js/linechart_vis7.js"
+import { createLithiumCobaltVis } from "./js/cobaltBarChart_vis8.js";
+import { createwindmill_vis10} from "./js/windmill_vis10.js"
 
 ///////////////////////////////////////////////////////////////////
 
@@ -47,13 +48,23 @@ window.addEventListener('scroll', () => {
 function updateVisualization(step) {
   if (step === currentStep) return;
   currentStep = step;
+
+  document.getElementById("main-vis").style.display = "block";
+  document.getElementById("vis8-container").style.display = "none";
+
   vis.selectAll("*").remove();
   // vis.classed("visible", false);
 
   if (step === 6) {
     container.classed("background-mode", true)
+    console.log('i am here')
 
-  } else {
+  } 
+  else if (step === 10 && window.windmillReady === false) {
+    console.log("Delaying re-entry to vis10");
+    return; // wait until windmill is ready
+  }
+  else {
     container.classed("background-mode", false)
     vis
       .attr('width', 1000)
@@ -64,6 +75,8 @@ function updateVisualization(step) {
   }
 
   document.getElementById("globe-controls").style.display = "none";
+  const windmillUI = document.getElementById("windmill-ui");
+  windmillUI.style.display = (step === 10) ? "block" : "none";
   
   if (step === 1) {
     create_choropleth_vis1();
@@ -91,45 +104,37 @@ function updateVisualization(step) {
     playdiv.style.display = 'none';
   }
   else if (step === 7) {
-    createLinechart();
+    vis.append("text")
+    .attr("x", 100)
+    .attr("y", 400)
+    .attr("font-size", "0px")
+    .attr("fill", "#673AB7")
+    .text("More top stuff")
+    .transition()
+    .duration(800)
+    .attr("y", 200)
+    .attr("font-size", "24px");
     playdiv.style.display = 'none';
   }
   else if (step === 8) {
-    console.log('again')
-    vis.selectAll("rect")
-      .data([100, 200, 300])
-      .enter()
-      .append("rect")
-      .attr("x", (d, i) => 100 + i * 120)
-      .attr("y", 400)
-      .attr("width", 80)
-      .attr("height", 0)
-      .attr("fill", "#FF9800")
-      .transition()
-      .duration(800)
-      .attr("y", d => 400 - d)
-      .attr("height", d => d);
-      playdiv.style.display = 'none';
+    document.getElementById("main-vis").style.display = "none";
+    document.getElementById("vis8-container").style.display = "block";
+    createLithiumCobaltVis();
+    playdiv.style.display = 'none';
   }
   else if (step === 9) {
     createPolarChart()
     playdiv.style.display = 'none';
   }
   else if (step === 10) {
-    vis.selectAll("rect")
-      .data([100, 200, 300])
-      .enter()
-      .append("rect")
-      .attr("x", (d, i) => 100 + i * 120)
-      .attr("y", 400)
-      .attr("width", 80)
-      .attr("height", 0)
-      .attr("fill", "#FF9800")
-      .transition()
-      .duration(800)
-      .attr("y", d => 400 - d)
-      .attr("height", d => d);
-      playdiv.style.display = 'none';
+    playdiv.style.display = 'none';
+  
+    // Reset scroll state for windmill to prevent bounce-forward
+    window.yearIndexForWindmill = 0;
+  
+    setTimeout(() => {
+      createwindmill_vis10();
+    }, 1000);
   }
   else if (step === 11) {
    create_funnelchart();

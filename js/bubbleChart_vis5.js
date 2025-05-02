@@ -98,15 +98,16 @@ export function createEVIncentiveBubbleChart() {
                EV Sales: ${d.Avg_EV_Sales.toLocaleString()}<br/>
                Incentive Type: ${d.EV_Incentive_Type}`
             )
-            .style("left", event.pageX + 10 + "px")
-            .style("top", event.pageY - 28 + "px");
+            .style("left", (event.pageX < 1000 ? event.pageX + 10 : event.pageX - 250) + "px")
+            .style("top", event.pageY - 60 + "px");
+            console.log(event.pageX, event.pageY, typeof event.pageX)
   
           d3.select(this).style("stroke", "#333").style("opacity", 1);
         })
         .on("mousemove", function (event) {
           tooltip
-            .style("left", event.pageX + 10 + "px")
-            .style("top", event.pageY - 28 + "px");
+            .style("left", (event.pageX < 1000 ? event.pageX + 10 : event.pageX - 250) + "px")
+            .style("top", event.pageY - 60 + "px");
         })
         .on("mouseout", function () {
           tooltip.style("opacity", 0);

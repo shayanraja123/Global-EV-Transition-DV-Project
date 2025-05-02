@@ -150,13 +150,15 @@ export function createEVCarSalesVis() {
             <div><b>Total: ${format_number(total_sales)}</b></div>
         `)
         .style("opacity",1)
-        .style("left", (event.pageX + 15) + "px")
+        .style("left", (yr <= 2018 ? event.pageX + 50 : event.pageX - 280) + "px")
         .style("top", (event.pageY - 40) + "px");
+        console.log(yr)
     })
 
-    .on("mousemove", function(event){
+    .on("mousemove", function(event, d){
+        const yr = d.data.Year;
         info_box
-        .style("left", (event.pageX + 15) + "px")
+        .style("left", (yr <= 2018 ? event.pageX + 50 : event.pageX - 280) + "px")
         .style("top", (event.pageY - 40) + "px");
     })
 

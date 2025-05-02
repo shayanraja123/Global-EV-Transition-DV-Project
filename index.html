@@ -5,7 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>The Global EV-olution</title>
 		<link rel="stylesheet" href="style.css" />
-		<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+        <link rel="stylesheet" href="windmill_vis10.css" />
+		
 		
 	</head>
 	<body>
@@ -45,7 +46,7 @@
 				<section class="step" data-step="4">
 					<h2 class="page-header">Top 10 EV-selling countries and their market share</h2>
 					<p>
-						From Norway, with the world's highest EV adoption rate, to China, now the largest EV market, government policies, infrastructure investments, and consumer enthusiasm have propelled nations across the globe to the forefront of the EV revolution
+						From Norway, with the world's highest EV adoption rate, to China, now the largest EV market, government policies, infrastructure investments, and consumer enthusiasm have propelled nations across the globe to the forefront of the EV revolution.
 					</p>
 					<p><i>Leading nations in EV adoption, from early pioneers to emerging giants.</i></p>
 					<style>
@@ -156,10 +157,10 @@
                 <section class="step" data-step="6">
 					<h2 class="page-header">Timeline of significant EV policies</h2>
 					<p>
-						Mapping the timeline of major EV policies highlights how sustained political commitment has fueled progress, setting the stage for a cleaner transportation future.
+						A timeline of major EV policies for all countries shows how over time, the world goes from small promises for EVs to big, strict policies such as Zero Emission Vehicle (ZEV)
+						mandates and Internal Combustion Engine (ICE) bans. 
 					</p>
 					<p><i> Major EV policies over time have steered markets toward electrification.	</i></p>
-					<p> Mapping the timeline of major EV policies highlights how sustained political commitment has fueled progress, setting the stage for a cleaner transportation future.					</p>
                     <div class="next-arrow">↓</div>
 				</section>
                 <section class="step" data-step="7">
@@ -221,6 +222,7 @@
 			</div>
 			<div id="vis-panel">
                 <svg id="main-vis"></svg>
+				<div id="vis8-container" style="width:1000px; height:600px; margin:auto; display:none;"></div>
                 <center>
                 <div id="playdiv" ><button id="playbtn" onclick="playclicked()">Play</button>
                     <span id="slidervalue">1990</span> 
@@ -231,13 +233,35 @@
                     <input type="range" id="year-slider" min="1990" max="2035" value="1990" />
                     <button id="play-pause-btn">Pause</button>
                 </div>
-			</center>
+                <div id="windmill-ui" class="windmill_viz10">
 
+					<div class="top-section-sshivap8">
+					  <div id="data-box-sshivap8">
+						<h3>Country rankings</h3>
+						<button id="sort-btn-sshivap8">Sort: Descending</button>
+						<div id="data-list-sshivap8"></div>
+					  </div>
+					</div>
+					<div id="year-scale-full-container-sshivap8">
+					  <div id="year-scale-wrapper-sshivap8">
+						<div id="year-scale-container-sshivap8">
+						  <div id="year-scale-sshivap8"></div>
+						</div>
+						<div id="controls-sshivap8">
+						  <button id="toggle-btn-sshivap8">Pause</button>
+						</div>
+					  </div>
+					</div>
+				  </div>
+			</center>
 		</div>
 		</div>
         <script src="https://d3js.org/d3.v7.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
 		<script src="https://d3js.org/topojson.v3.min.js"></script>
+		
+		<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
 		<script type="module" src="script.js"></script>
         <script type="module" src="js/polarChart.js"></script>
         <script type="module" src="js/stepSankey_vis6.js"></script>
@@ -246,7 +270,10 @@
 		<script type="module" src="js/bubbleChart_vis5.js"></script>
 		<script type="module" src="js/globe_vis12.js"></script>
 		<script type="module" src="js/choropleth_viz4.js"></script>
+        <script type="module" src="js/windmill_vis10.js"></script>
         <div class="tooltip" id="tooltip_vis12" style="position: absolute; display: none;"></div>
+
+
 
 	</body>
 </html>

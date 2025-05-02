@@ -126,7 +126,7 @@ function drawSankeyEVPolicies() {
 
 	// make svg nodes
 	const rect = svg.append('g')
-		.attr('stroke', '#000')
+		// .attr('stroke', '#000')
 		.selectAll('g')
 		.data(nodes, d => d.name)
 		.join(
@@ -144,8 +144,6 @@ function drawSankeyEVPolicies() {
 					.attr('y', d => (d.y1 + d.y0)/2)
 					.attr('dy', '0.35em')
 					.attr('text-anchor', 'end')
-					.attr('font-size', '12px')
-					.attr('font-weight', 300)
 					.text(d => {
 						const [name, phase] = d.name.split('_')
 						if (d.value === 0) {
@@ -157,12 +155,16 @@ function drawSankeyEVPolicies() {
 							return name
 						}
 					})
+					.attr('font-size', '12px')
+					.attr('font-weight', 400)
+					.attr('fill', 'rgba(0,0,0,0.8)')
 				g.append('text')
 					.attr('x', d => d.x0-20)
 					.attr('y', -50)//d.name.includes('Phase') && d.name.includes('middlelate') ? (d.y1 + d.y0)/2 + 60 : (d.y1 + d.y0)/2 + 500)
 					.attr('dy', '0.35em')
 					.attr('text-anchor', 'end')
 					.attr('font-size', '20px')
+					.attr('fill', 'rgba(0,0,0,0.8)')
 					
 					.text(d => {
 						const [name, phase] = d.name.split('_')
@@ -225,6 +227,7 @@ function drawSankeyEVPolicies() {
 				.attr('y', -125)
 				.attr('font-size', '24px')
 				.style('font-weight', 700)
+				.attr('fill', 'rgba(0,0,0,0.8)')
 				.text(d => d)
 		)
 	
