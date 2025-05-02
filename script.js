@@ -16,6 +16,13 @@ import { createLinechart  } from "./js/linechart_vis7.js";
 
 let currentStep = null
 var playdiv=document.getElementById("playdiv");
+var slider1=document.getElementById("slider");
+var slidervalue1=document.getElementById("slidervalue");
+var wajaplaydiv=document.getElementById("wajaplaydiv");
+var wajaslider=document.getElementById("wajaslider");
+var wajaslidervalue=document.getElementById("wajaslidervalue");
+var shivamslider=document.getElementById("year-slider");
+var shivamslidervalue=document.getElementById("year-label");
 const steps = d3.selectAll(".step");
 const vis = d3.select("#main-vis")
   .attr('width', 1000)
@@ -80,46 +87,59 @@ function updateVisualization(step) {
   windmillUI.style.display = (step === 10) ? "block" : "none";
   
   if (step === 1) {
+    slider1.value=1990;
+    slidervalue1.innerHTML=1990;
     create_choropleth_vis1();
       playdiv.style.display = 'block';
+      wajaplaydiv.style.display="none";
   }
   else if (step === 2) {
     createBatteryCostVis();
     playdiv.style.display = 'none';
+    wajaplaydiv.style.display="none";
   }
   else if (step === 3) {
     createEVCarSalesVis();
     playdiv.style.display = 'none';
+    wajaplaydiv.style.display="none";
   }
   else if (step === 4) {
+    wajaslider.value=2010;
+    wajaslidervalue.innerHTML=2010;
     create_choropleth_viz4(); 
-    playdiv.style.display = 'block';
+    playdiv.style.display = 'none';
+    wajaplaydiv.style.display = 'block';
   }
   else if (step === 5) {
     createEVIncentiveBubbleChart();
     playdiv.style.display = 'none';
-    
+    wajaplaydiv.style.display="none";
   }
   else if (step === 6) {
     createStepSankey()
     playdiv.style.display = 'none';
+    wajaplaydiv.style.display="none";
   }
   else if (step === 7) {
     createLinechart();
     playdiv.style.display = 'none';
+    wajaplaydiv.style.display="none";
   }
   else if (step === 8) {
     document.getElementById("main-vis").style.display = "none";
     document.getElementById("vis8-container").style.display = "block";
     createLithiumCobaltVis();
     playdiv.style.display = 'none';
+    wajaplaydiv.style.display="none";
   }
   else if (step === 9) {
     createPolarChart()
     playdiv.style.display = 'none';
+    wajaplaydiv.style.display="none";
   }
   else if (step === 10) {
     playdiv.style.display = 'none';
+    wajaplaydiv.style.display="none";
   
     // Reset scroll state for windmill to prevent bounce-forward
     window.yearIndexForWindmill = 0;
@@ -131,10 +151,12 @@ function updateVisualization(step) {
   else if (step === 11) {
    create_funnelchart();
       playdiv.style.display = 'none';
+      wajaplaydiv.style.display="none";
   }
   else if (step === 12) {
     createGlobe();
       playdiv.style.display = 'none';
+      wajaplaydiv.style.display="none";
       document.getElementById("globe-controls").style.display = "block";
   }
     // vis.classed("visible", true);

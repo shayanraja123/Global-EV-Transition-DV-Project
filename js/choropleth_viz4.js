@@ -134,7 +134,14 @@ export function create_choropleth_viz4() {
       .append("path")
       .attr("d", path)
       .attr("fill", d => {
-        const value = dataMap[currentYear]?.[d.properties.name]?.sales;
+        var statename;
+        if(d.properties.name=="USA"){
+          statename="United States of America"
+        }
+        else{
+          statename=d.properties.name;
+        }
+        const value = dataMap[currentYear]?.[statename]?.sales;
         return value !== undefined ? colorScale(value) : "#ccc";
       })
       .attr("stroke", "#999")
@@ -176,30 +183,38 @@ export function create_choropleth_viz4() {
 
     function updateMap(year) {
       currentYear = +year;
-      d3.select("#slidervalue").text(currentYear);
+      d3.select("#wajaslidervalue").text(currentYear);
       countries.transition().duration(300)
         .attr("fill", d => {
-          const value = dataMap[year]?.[d.properties.name]?.sales;
+          var statename;
+        if(d.properties.name=="USA"){
+          statename="United States of America"
+        }
+        else{
+          statename=d.properties.name;
+        }
+          const value = dataMap[year]?.[statename]?.sales;
           return value !== undefined ? colorScale(value) : "#ccc";
         });
     }
 
-    window.playclicked = function () {
-      const playbtn = document.getElementById("playbtn");
-      const slider = document.getElementById("slider");
-      const slidervalue = document.getElementById("slidervalue");
+    window.wajaplayclicked = function () {
+      const playbtn = document.getElementById("wajaplaybtn");
+      const slider = document.getElementById("wajaslider");
+      const slidervalue = document.getElementById("wajaslidervalue");
 
       if (!isPlaying) {
         isPlaying = true;
         playbtn.innerHTML = "Pause";
         // slider.disabled = true;
-        let year = 2010;
+        let year=parseInt(slider.value);
+        // let year = 2010;
         timer = setInterval(() => {
           if (year > 2023) {
             stopAutoplay();
             slider.value = 2010;
             slidervalue.textContent = 2010;
-            updateMap(2023);
+            updateMap(2010);
             return;
           } else {
             slider.value = year;
@@ -213,23 +228,23 @@ export function create_choropleth_viz4() {
       }
     };
 
-    window.sliderchanged = function () {
-      const slider = document.getElementById("slider");
+    window.wajasliderchanged = function () {
+      const slider = document.getElementById("wajaslider");
       const value = +slider.value;
-      document.getElementById("slidervalue").textContent = value;
+      document.getElementById("wajaslidervalue").textContent = value;
       updateMap(value);
     };
 
     function stopAutoplay() {
       isPlaying = false;
       clearInterval(timer);
-      document.getElementById("playbtn").innerHTML = "Play";
-      document.getElementById("slider").disabled = false;
+      document.getElementById("wajaplaybtn").innerHTML = "Play";
+      document.getElementById("wajaslider").disabled = false;
     }
 
-    const slider = document.getElementById("slider");
-    const playdiv = document.getElementById("playdiv");
-    const play_div = d3.select('#playdiv')
+    const slider = document.getElementById("wajaslider");
+    const playdiv = document.getElementById("wajaplaydiv");
+    const play_div = d3.select('#wajaplaydiv')
     play_div.style('margin-top', '-220px')
     if (slider && playdiv) {
       // playdiv.style.position = "absolute";
@@ -237,10 +252,10 @@ export function create_choropleth_viz4() {
       // playdiv.style.bottom = "10px";
       slider.setAttribute("min", "2010");
       slider.setAttribute("max", "2023");
-      slider.setAttribute("value", "2023");
-      document.getElementById("slidervalue").textContent = "2023";
+      slider.setAttribute("value", "2010");
+      document.getElementById("wajaslidervalue").textContent = "2010";
     }
 
-    updateMap(2023);
+    updateMap(2010);
   });
 }

@@ -1,4 +1,4 @@
-var margin = ({top: 70, right: 70, bottom: 70, left: 70})
+var margin = ({top: 70, right: 90, bottom: 70, left: 70})
 var data;
 var seconddata;
 var newdata;
@@ -7,7 +7,7 @@ var height=800;
 var x;
 var y;
 var area;
-var areaMirror;
+var areabelow;
 export function create_funnelchart(){
    seconddata=[];
    newdata=[]
@@ -78,30 +78,32 @@ seconddata=newdata;
 
 // }
 //console.log(seconddata)
-x = d3.scaleUtc()
-    .domain(d3.extent(seconddata, ({step}) => step))
-    .range([margin.left, width - margin.right])
-
 y = d3.scaleLinear()
-.domain([-d3.max(newdata, ({value}) => value), d3.max(newdata, ({value}) => value)]).nice()
+.domain([-d3.max(newdata, (d) => d.value), d3.max(newdata, (d) => d.value)]).nice()
 .range([height - margin.bottom, margin.top])
 
+x = d3.scaleUtc()
+    .domain(d3.extent(seconddata, (d) => d.step))
+    .range([margin.left, width - margin.right])
 
-areaMirror = d3.area()
-    .x(({step}) => x(step))
+
+
+
+areabelow = d3.area()
+    .x((d) => x(d.step))
     .y0(y(0))
-    .y1(({value}) => y(-value))
+    .y1((d) => y(-d.value))
 
 area = d3.area()
-.x(({step}) => x(step))
+.x((d) => x(d.step))
 .y0(y(0))
-.y1(({value}) => y(value))
+.y1((d) => y(d.value))
 
 
-chart()
+drawfunnelchart()
 })
     
-function chart(){
+function drawfunnelchart(){
     var funnelchartsvg = d3.select('#main-vis')
     
     funnelchartsvg.append('path')
@@ -112,34 +114,29 @@ function chart(){
     funnelchartsvg.append('path')
       .datum(seconddata)
       .attr('fill', 'blue')
-      .attr('d', areaMirror);
+      .attr('d', areabelow);
   
     funnelchartsvg.selectAll('.values')
       .data(newdata)
       .enter()
       .append('text')
         .attr('class', 'values')
-        .attr('x', ({ step }) => x(step) + 10)
+        .attr('x', (d) => x(d.step) + 10)
         .attr('y', 50)
-        .text(({ value }) => d3.format(".2s")(value))
-        .attr('style', `
-          fill: "black";
-          font-size: 22px;
-        `);
+        .text((d) => d3.format(".2s")(d.value))
+        .style("fill","black")
+        .style("font-size","20px")
     
     funnelchartsvg.selectAll('.labels')
       .data(newdata)
       .enter()
       .append('text')
         .attr('class', 'labels')
-        .attr('x', ({ step }) => x(step) + 10)
+        .attr('x', (d) => x(d.step) + 10)
         .attr('y', 70)
-        .text(({ label }) => label)
-        .attr('style', `
-            fill: "black"};
-           
-            font-size: 18px;
-        `);
+        .text((d) => d.label)
+        .style("fill","black")
+        .style("font-size","18px")
     
     
         
@@ -150,7 +147,7 @@ function chart(){
         .attr('x1', value => x(value))
         .attr('y1', 30)
         .attr('x2', value => x(value))
-        .attr('y2', height - 30)
+        .attr('y2', height -40)
         .style('stroke-width', 1)
         .style('stroke', "orange")
         .style('fill', 'none');
