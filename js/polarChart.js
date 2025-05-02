@@ -33,14 +33,14 @@ function drawPolarChart() {
 
     const z = d3.scaleOrdinal()
         .domain(legendData)
-        .range(['#999999', '#76b7b2', '#f28e2b', '#59a14f'])
+        .range(['#999999', '#6794b8', '#e49d8e', '#0cc830'])
     
     svg.append('g')
         .selectAll('path')
         .data(nze_data, d => d.id)
         .join(
             enter => enter.append('path')
-                .attr('fill', d => d.year < 2025 ? '#999999' : '#76b7b2')
+                .attr('fill', d => d.year < 2025 ? '#999999' : '#6794b8')
                 // .attr('opacity', 0.7)
                 .attr('d', d3.arc()
                     .innerRadius(innerRadius)
@@ -99,7 +99,7 @@ function drawPolarChart() {
         .join(
             enter => enter.append('path')
                 .attr('class', 'second')
-                .attr('fill', d => d.year < 2025 ? '#999999' : '#f28e2b')
+                .attr('fill', d => d.year < 2025 ? '#999999' : '#e49d8e')
                 .attr('d', d3.arc()
                     .innerRadius(d => innerRadius)
                     .innerRadius(innerRadius)
@@ -117,7 +117,7 @@ function drawPolarChart() {
         .join(
             enter => enter.append('path')
                 .attr('class', 'third')
-                .attr('fill', d => d.year < 2025 ? '#999999' : '#59a14f')
+                .attr('fill', d => d.year < 2025 ? '#999999' : '#0cc830')
                 .attr('d', d3.arc()
                     .innerRadius(d => innerRadius)
                     .innerRadius(innerRadius)
