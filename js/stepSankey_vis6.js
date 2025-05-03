@@ -230,7 +230,78 @@ function drawSankeyEVPolicies() {
 				.attr('fill', 'rgba(0,0,0,0.8)')
 				.text(d => d)
 		)
+
+	const legendSankey = d3.sankey()
+		.nodeAlign(d3.sankeyJustify)
+		.nodeWidth(15)
+		.nodePadding(10)
+		.size([50, 50])
+
+	const { nodes: legendNodes, links: legendLinks} = legendSankey({
+		nodes: [
+			{ node: 0, name: 'Policy'},
+			{ node: 1, name: 'Policy'},
+			{ node: 2, name: 'Policy'},
+			{ node: 3, name: 'Total number of policies'}
+		],
+		links: [
+			{source: 0, target: 3, value: 3},
+			{source: 1, target: 3, value: 3},
+			{source: 2, target: 3, value: 3}
+		]
+	})
+
+	console.log(legendNodes)
 	
+	const legend = svg.append('g')
+		.attr('transition', 'translate(40, 40)')
+	
+	svg.append('g')
+		.selectAll('.legendNode')
+		.data(legendNodes)
+		.join(
+			enter => {
+				const g = enter.append('g')
+				.attr('class', 'legendNode')
+			g.append('rect')
+				.attr("x", d => d.x0)
+				.attr("y", d => d.y0)
+				.attr("height", d => d.y1 - d.y0)
+				.attr("width", d => d.x1 - d.x0)
+				.attr("fill", d => d.name === 'Policy' ? 'green' : 'red')
+			g.append('text')
+				.attr('x', d => d.name.includes('Total') ? d.x1 + 130 : d.x0 - 6)
+				.attr('y', d => (d.y1 + d.y0) / 2)
+				.attr('dy', '0.35em')
+				.attr('text-anchor', 'end')
+				.text(d => d.name)
+				.attr('font-size', '12px')
+				.attr('font-weight', 400)
+				.attr('fill', 'rgba(0,0,0,0.8)')
+			
+			return g
+				
+			}
+		)
+	svg.append('g')
+		.attr('fill', 'none')
+		.attr('stroke-opacity', 0.5)
+		.selectAll('path')
+		.data(legendLinks)
+		.join(
+			enter => enter.append('path')
+				.attr('class', 'link')
+				.attr('d', d3.sankeyLinkHorizontal())
+				.attr('stroke', 'gray')
+				.attr('stroke-width', d => d.width)
+				.append('title'),
+			update => update
+				.attr('d', d3.sankeyLinkHorizontal())
+				.attr('stroke-width', d => d.width),
+			exit => exit.remove()
+		)
+			
+			
 }
 
 export function createStepSankey() {
