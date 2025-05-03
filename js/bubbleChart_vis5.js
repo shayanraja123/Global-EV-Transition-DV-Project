@@ -10,7 +10,7 @@ export function createEVIncentiveBubbleChart() {
   
     function drawBubbleChart() {
     //   const margin = { top: 140, bottom: 60, left: 100, right: 100 };
-      const margin = { top: 100, bottom: 100, left: 80, right: 70 };
+      const margin = { top: 100, bottom: 100, left: 100, right: 100 };
       const width = 1000 - margin.left - margin.right;
       const height = 700 - margin.top - margin.bottom;
   
