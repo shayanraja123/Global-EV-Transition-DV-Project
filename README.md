@@ -5,12 +5,12 @@ This project presents a **scrollytelling-based interactive narrative** that expl
 
 Created as part of the **CSE 578: Data Visualization** course at Arizona State University.
 
-## 🧭 Live Demo
+## Live Demo
 
 > 💡 _To view the live scrollytelling project, open `index.html` in any modern web browser (Chrome, Firefox, Edge)._  
 > _No server setup is required—simply double-click the file or right-click → "Open in browser"._
 
-## 🚀 How to Run
+## How to Run
 
 1. **Clone or download** this repository to your local machine.
 2. Navigate to the root folder.
@@ -18,14 +18,14 @@ Created as part of the **CSE 578: Data Visualization** course at Arizona State U
    - No server or dependencies are required.
    - All scripts and assets are embedded or locally referenced.
 
-## 🛠️ Tools & Libraries
+## 🛠Tools & Libraries
 
 This project uses:
 - [D3.js v7](https://d3js.org/) for custom visualizations
 - [ECharts](https://echarts.apache.org/) for high-performance charts
 - Vanilla JavaScript, HTML5, and CSS3
 
-## 📚 Credits
+## Credits
 
 Created by:
   
@@ -39,6 +39,6 @@ Created by:
 Course: **CSE 578: Data Visualization**, Spring 2025  
 Instructor: Prof. Chris Bryan, ASU
 
-## 📄 License
+## License
 
 This project is for academic and educational purposes only.
