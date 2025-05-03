@@ -59,6 +59,8 @@ function updateVisualization(step) {
 
   document.getElementById("main-vis").style.display = "block";
   document.getElementById("vis8-container").style.display = "none";
+  document.getElementById("conclusion-overlay").style.display = "none";
+
 
   vis.selectAll("*").remove();
   // vis.classed("visible", false);
@@ -71,6 +73,13 @@ function updateVisualization(step) {
   else if (step === 10 && window.windmillReady === false) {
     console.log("Delaying re-entry to vis10");
     return; // wait until windmill is ready
+  }
+  else if (step ===13){
+    container.classed("background-mode", true)
+    document.getElementById("conclusion-overlay").style.display = "block";
+  }
+  else if (step === 12){
+    container.classed("background-mode", true)
   }
   else {
     container.classed("background-mode", false)

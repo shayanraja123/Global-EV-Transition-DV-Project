@@ -6,7 +6,7 @@ export function createLithiumCobaltVis() {
     if (mainVis) mainVis.style.display = "none";
 
     // Clear any previous chart
-    container.innerHTML = "";  // ← Important so we don’t stack charts
+    container.innerHTML = "";  
 
     // Create a new div inside the container for ECharts
     const chartDiv = document.createElement("div");

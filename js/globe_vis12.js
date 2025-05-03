@@ -13,7 +13,7 @@ Promise.all([
     console.error("❌ Error loading data:", error);
   });
 
-    const width = 800, height = 600;
+    const width = 1600, height = 800;
     const sensitivity = 100;
   
     const projection = d3.geoOrthographic()

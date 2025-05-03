@@ -35,6 +35,39 @@ export function createLinechart() {
     ];
   
     const option = {
+      title: {
+        text: 'Global EV Sales vs Charging Ports',
+        subtext: 'Tracking the growth of electric vehicle sales and charging infrastructure (2010-2023)',
+        left: 'center',
+        top: 40, 
+        textStyle: {
+          fontSize: 22,
+          fontWeight: 'bold',
+          color: '#111'
+        },
+        subtextStyle: {
+          fontSize: 14,
+          color: '#666'
+        },
+        padding: [10, 0, 0, 0] 
+      },
+      legend: {
+        top: 'bottom',           
+        left: 'center',          
+        orient: 'horizontal',
+        textStyle: {
+          fontSize: 14
+        }
+      },
+    grid: {
+      top: 150, 
+      left: 60,
+      right: 60,
+      bottom: 60
+    },
+
+    
+
       backgroundColor: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
         { offset: 0, color: '#ffffff' },
         { offset: 1, color: '#f3f6f9' }
