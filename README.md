@@ -7,7 +7,7 @@ Created as part of the **CSE 578: Data Visualization** course at Arizona State U
 
 ## Live Demo
 
-> 💡 _To view the live scrollytelling project, open `index.html` in any modern web browser (Chrome, Firefox, Edge)._  
+> 💡 _To view the live scrollytelling project, open `index.html` on your latest Google Chrome browser._  
 > _No server setup is required—simply double-click the file or right-click → "Open in browser"._
 
 ## How to Run
