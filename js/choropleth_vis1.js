@@ -95,7 +95,7 @@ window.sliderchanged=sliderchanged;
     // d3.queue()
     //   .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
     //   .defer(d3.csv, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", function(d) { data.set(d.code, +d.pop); })
-    //   .await(ready);
+    //   .await(drawchoroplethmap1);
     
     var promises=[];
     promises.push(d3.json("./data/world.geojson"))
@@ -128,7 +128,7 @@ window.sliderchanged=sliderchanged;
        //console.log("maxnumber: ",maxnumber)
       // var orangecolor=d3.scaleSequential(d3.interpolateOranges)
       
-      ready(result[0])
+      drawchoroplethmap1(result[0])
       Legend(colorscale, {
         title:'Global CO2  emissions in tonnes',
         tickFormat:'.1s',
@@ -147,7 +147,7 @@ window.sliderchanged=sliderchanged;
 }
 
 
-function ready( topo) {
+function drawchoroplethmap1( topo) {
 
   svg
     .selectAll("path")
