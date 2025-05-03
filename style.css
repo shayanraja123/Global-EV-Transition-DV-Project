@@ -122,22 +122,22 @@ body {
 /* ----- slider for vis 1 ----- */
 #playdiv{
   z-index:5;
-  top: 900px;
-  left:310px;
+  top: 87.5%;
+  left:30%;
   position: absolute;
 }
 /* ----- slider for vis 4 ----- */
 #wajaplaydiv{
   z-index:5;
-  top: 1000px;
-  left:310px;
+  top: 87.5%;
+  left:30%;
   position: absolute;
 }
 /* ----- slider for vis 12 ----- */
 #globe-controls{
   z-index:5;
-  top: 750px;
-  left:310px;
+  top: 87.5%;
+  left:30%;
   position: absolute;
 }
 

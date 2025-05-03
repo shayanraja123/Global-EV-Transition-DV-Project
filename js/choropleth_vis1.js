@@ -23,8 +23,8 @@ export function create_choropleth_vis1(){
     .append("g")
         .attr("transform", `translate(${chartMargins.left},${chartMargins.top})`);
 
-  const play_div = d3.select('#playdiv')
-  play_div.style('margin-top', '-130px')
+  // const play_div = d3.select('#playdiv')
+  // play_div.style('margin-top', '-250px')
      
  function playclicked(){
   
