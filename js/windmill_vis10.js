@@ -26,7 +26,7 @@ export function createwindmill_vis10() {
 
 
   // DOM Elements
-  const svg = d3.select("#main-vis").append("svg")
+  const svg = d3.select("#main-vis")
     .attr("width", width)
     .attr("height", height);
 

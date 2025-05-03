@@ -28,6 +28,7 @@ h1 {
 }
 
 #year-scale-full-container-sshivap8{
+  margin-bottom: 60px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -42,7 +43,7 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  border-top: 1px solid #ccc;
+  /* border-top: 1px solid #ccc; */
   padding-top: 8px;
   width: fit-content;
 }
@@ -63,7 +64,7 @@ h1 {
   justify-content: center;
   width: fit-content;
   padding-top: 10px;
-  margin-top: 10px;
+  margin-top: 100px;
   padding-top: 6px;
 }
 
@@ -90,7 +91,10 @@ h1 {
 }
 
 #controls-sshivap8 {
-  margin-left: 20px;
+  position: fixed;
+  top: 180px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
 }
@@ -122,9 +126,11 @@ svg {
 
 
 #data-box-sshivap8 {
+  position: fixed;
   width: 300px;
-  margin-left: 800px;      
-  margin-top: -1000px;       
+  top: 50px;
+  right: 30px;  
+  max-height: 80vh;
   padding: 5px;
   background: #f9f9f9;
   border-left: 1px solid #ccc;
@@ -137,7 +143,7 @@ svg {
 
 
 #data-list-sshivap8 {
-  height: 700px;
+  height: 400px;
   overflow-y: scroll;
   overflow-x: hidden;
   width: 100%;
