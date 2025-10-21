@@ -9,7 +9,7 @@ Created as part of the **CSE 578: Data Visualization** course at Arizona State U
 
 > 💡 _To view the live scrollytelling project, open `index.html` in your latest Google Chrome browser._  
 > _Simply double-click the file or right-click → **“Open with Live Server”** in VS Code to launch it locally._  
-> _✅ Optimized for **Google Chrome** — use it for the best visual and interactive performance._
+> _✅ Optimized for **Google Chrome** - use it for the best visual and interactive performance._
 
 ## How to Run
 
